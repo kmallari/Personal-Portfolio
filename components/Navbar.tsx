@@ -4,7 +4,6 @@ import Image from "next/image";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 import { RiMenuUnfoldLine } from "react-icons/ri";
 import { FiHome, FiInfo, FiCode, FiBriefcase } from "react-icons/fi";
-import { IconContext } from "react-icons";
 import { motion, useCycle, AnimatePresence } from "framer-motion";
 
 interface NavbarProps {}
@@ -21,14 +20,14 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
 
   const [isHamburger, setIsHamburger] = useState<boolean>(false);
   const [showHamburgerMenu, onShowHamburgerMenu] = useCycle<boolean>(
-    true,
-    false
+    false,
+    true
   );
   const { height, width } = useWindowDimensions();
 
   const checkHamburger = (): void => {
     if (width != null) {
-      if (width <= 768) {
+      if (width <= 800) {
         setIsHamburger(true);
         // setShowHamburgerMenu(false);
       } else {
@@ -59,8 +58,11 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
         className={`bg-dark-neutral bg-opacity-20
          backdrop-filter backdrop-blur-sm shadow-xl flex flex-row justify-between h-16 w-full items-center pl-16 pr-16 lg:pl-32 lg:pr-32 font-dm fixed top-0 text-white transition-all`}
       >
-        {/* {`width: ${width}, isHamburger: ${isHamburger}`} */}
-        <h1>Test</h1>
+        <div className='flex flex-row gap-6 items-center'>
+          {/* 904 x 1100 */}
+          <Image alt='logo' src='/logo.png' width={25.83} height={31.42} />
+          <h1 className='text-sm tracking-widest select-none'>KEVIN MALLARI</h1>
+        </div>
         {isHamburger ? (
           <div onClick={handleHamburgerClick} className='cursor-pointer'>
             <RiMenuUnfoldLine style={{ color: "#C4CBCA" }} />
@@ -68,33 +70,41 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
         ) : (
           <div className='flex flex-row gap-14 h-full items-center'>
             <Link href='/'>
-              <a className='flex justify-center items-center h-full hover:text-primary-1 transition-all'>
-                <div className='flex flex-row gap-2 items-center'>
-                  <FiHome />
+              <a className='flex justify-center items-center h-full transition-all select-none group'>
+                <div className='flex flex-row gap-2 items-center group-hover:text-primary-1'>
+                  <div className='text-primary-light group-hover:text-primary-1'>
+                    <FiHome />
+                  </div>
                   Home
                 </div>
               </a>
             </Link>
             <Link href='#about'>
-              <a className='flex justify-center items-center h-full hover:text-primary-1 transition-all'>
-                <div className='flex flex-row gap-2 items-center'>
-                  <FiInfo />
+              <a className='flex justify-center items-center h-full transition-all select-none group'>
+                <div className='flex flex-row gap-2 items-center group-hover:text-primary-1'>
+                  <div className='text-primary-light group-hover:text-primary-1'>
+                    <FiInfo />
+                  </div>
                   About
                 </div>
               </a>
             </Link>
             <Link href='#projects'>
-              <a className='flex justify-center items-center h-full hover:text-primary-1 transition-all'>
-                <div className='flex flex-row gap-2 items-center'>
-                  <FiCode />
+              <a className='flex justify-center items-center h-full transition-all select-none group'>
+                <div className='flex flex-row gap-2 items-center group-hover:text-primary-1'>
+                  <div className='text-primary-light group-hover:text-primary-1'>
+                    <FiCode />
+                  </div>
                   Projects
                 </div>
               </a>
             </Link>
             <Link href='#contact'>
-              <a className='flex justify-center items-center h-full hover:text-primary-1 transition-all'>
-                <div className='flex flex-row gap-2 items-center'>
-                  <FiBriefcase />
+              <a className='flex justify-center items-center h-full transition-all select-none group'>
+                <div className='flex flex-row gap-2 items-center group-hover:text-primary-1'>
+                  <div className='text-primary-light group-hover:text-primary-1'>
+                    <FiBriefcase />
+                  </div>
                   Contact
                 </div>
               </a>
@@ -111,33 +121,41 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
             exit={{ x: -768 }}
           >
             <Link href='/'>
-              <a className='select-none pl-12 pt-4 pb-4 w-full overflow-x-hidden hover:bg-dark-neutral hover:text-primary-1 hover:bg-opacity-10 transition-all'>
-                <div className='flex flex-row gap-4 items-center'>
-                  <FiBriefcase style={{ color: "#C4CBCA" }} />
+              <a className='select-none pl-12 pt-4 pb-4 w-full overflow-x-hidden hover:bg-dark-neutral hover:bg-opacity-10 transition-all group'>
+                <div className='flex flex-row gap-4 items-center group-hover:text-primary-1'>
+                  <div className='text-primary-light group-hover:text-primary-1'>
+                    <FiBriefcase />
+                  </div>
                   Home
                 </div>
               </a>
             </Link>
             <Link href='#about'>
-              <a className='select-none pl-12 pt-4 pb-4 w-full overflow-x-hidden hover:bg-dark-neutral hover:text-primary-1 hover:bg-opacity-10 transition-all'>
-                <div className='flex flex-row gap-4 items-center'>
-                  <FiInfo />
+              <a className='select-none pl-12 pt-4 pb-4 w-full overflow-x-hidden hover:bg-dark-neutral hover:bg-opacity-10 transition-all group'>
+                <div className='flex flex-row gap-4 items-center group-hover:text-primary-1'>
+                  <div className='text-primary-light group-hover:text-primary-1'>
+                    <FiInfo />
+                  </div>
                   About
                 </div>
               </a>
             </Link>
             <Link href='#projects'>
-              <a className='select-none pl-12 pt-4 pb-4 w-full overflow-x-hidden hover:bg-dark-neutral hover:text-primary-1 hover:bg-opacity-10 transition-all'>
-                <div className='flex flex-row gap-4 items-center'>
-                  <FiCode />
+              <a className='select-none pl-12 pt-4 pb-4 w-full overflow-x-hidden hover:bg-dark-neutral hover:bg-opacity-10 transition-all group'>
+                <div className='flex flex-row gap-4 items-center group-hover:text-primary-1'>
+                  <div className='text-primary-light group-hover:text-primary-1'>
+                    <FiCode />
+                  </div>
                   Projects
                 </div>
               </a>
             </Link>
             <Link href='#contact'>
-              <a className='select-none pl-12 pt-4 pb-4 w-full overflow-x-hidden hover:bg-dark-neutral hover:text-primary-1 hover:bg-opacity-10 transition-all'>
-                <div className='flex flex-row gap-4 items-center'>
-                  <FiBriefcase />
+              <a className='select-none pl-12 pt-4 pb-4 w-full overflow-x-hidden hover:bg-dark-neutral hover:bg-opacity-10 transition-all group'>
+                <div className='flex flex-row gap-4 items-center group-hover:text-primary-1'>
+                  <div className='text-primary-light group-hover:text-primary-1'>
+                    <FiBriefcase />
+                  </div>
                   Contact
                 </div>
               </a>

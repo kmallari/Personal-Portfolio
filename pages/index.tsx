@@ -4,12 +4,17 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { Navbar } from "../components/Navbar";
 import { Header } from "../components/Header";
+import { Projects } from "../components/Projects";
+import { BlurredBalls } from "../components/BlurredBalls";
 
 const Home: NextPage = () => {
+  // https://swiperjs.com/demos#mousewheel-control
   return (
     <>
-      <Navbar />
+      <BlurredBalls />
       <Header />
+      <Navbar />
+      <Projects />
     </>
   );
 };
