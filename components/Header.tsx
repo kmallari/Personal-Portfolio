@@ -3,6 +3,8 @@ import Image from "next/image";
 import { BiDownArrow } from "react-icons/bi";
 import { motion } from "framer-motion";
 import useWindowDimensions from "../hooks/useWindowDimensions";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 interface HeaderProps {}
 
@@ -13,6 +15,11 @@ for (let i = 0; i < 21; i++) {
 }
 
 export const Header: React.FC<HeaderProps> = ({}) => {
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, []);
+
   const { height, width } = useWindowDimensions();
   const bday = new Date("June 2, 99 00:00:00 GMT+8:00");
   const [diff, setDiff] = useState<number>(0);
@@ -25,18 +32,27 @@ export const Header: React.FC<HeaderProps> = ({}) => {
   return (
     <div
       id='home'
-      className='h-screen relative flex flex-col items-center justify-center '
+      className='h-screen relative flex flex-col items-center justify-center cursor-default'
     >
       <div className='flex flex-row items-center justify-center gap-8 lg:gap-16'>
-        <div className='w-2/3 md:w-1/3'>
-          <h2 className='text-5xl md:text-4xl lg:text-5xl font-dm font-bold text-primary-1 leading-normal select-text drop-shadow-lg'>
+        <div className='w-2/3 md:w-1/3 transition-all'>
+          <h2
+            className='text-5xl md:text-4xl lg:text-5xl font-dm font-bold text-primary-1 leading-normal select-text drop-shadow-lg'
+            data-aos='fade-down'
+            data-aos-easing='ease-in-out'
+          >
             I&apos;m Kevin, a{" "}
-            <span className='font-dm_mono transition-all hover:text-white'>
+            <span className='font-dm_mono transition-all hover:text-primary-light'>
               {(diff / (1000 * 60 * 60 * 24 * 365)).toFixed(9)}
             </span>{" "}
             year-old developer.
           </h2>
-          <p className='text-primary-light font-dm_mono w-2/3 leading-relaxed mt-8 tracking-wide text-sm lg:text-base'>
+          <p
+            className='text-primary-light font-dm_mono w-2/3 leading-relaxed mt-8 tracking-wide text-sm lg:text-base'
+            data-aos='fade-down'
+            data-aos-easing='ease-in-out'
+            data-aos-delay='200'
+          >
             I am a passionate and goal-oriented Computer Engineering student
             from Ateneo de Manila University who is interested in the field of
             software development and cloud computing.
@@ -44,29 +60,39 @@ export const Header: React.FC<HeaderProps> = ({}) => {
         </div>
 
         {width != null && width >= 768 ? (
-          <div className='h-auto w-auto sm:p-4 lg:p-8 bg-primary-light bg-opacity-5 hover:bg-opacity-10 backdrop-filter backdrop-blur-sm shadow-xl border-primary-light border-2 border-opacity-10 rounded-xl font-dm_mono text-primary-light flex flex-col items-center text-tiny lg:text-xs xl:text-sm mb-28 transition-all'>
-            <div className='flex flex-row lg:gap-4 xl:gap-4'>
-              <div className='absolute -left-20 -bottom-20 lg:-left-40 lg:-bottom-32 -z-10 shadow-2xl'>
-                <Image
-                  src='/me.png'
-                  width={
-                    window.innerWidth >= 1280
-                      ? 640 / 2.5
-                      : window.innerWidth >= 1024
-                      ? 640 / 3
-                      : 640 / 4
-                  }
-                  height={
-                    window.innerWidth >= 1280
-                      ? 771 / 2.5
-                      : window.innerWidth >= 1024
-                      ? 771 / 3
-                      : 771 / 4
-                  }
-                  quality={100}
-                  alt={"picture of developer"}
-                />
-              </div>
+          <div className='h-auto w-auto backdrop-blur-sm font-dm_mono text-primary-light flex flex-col items-center text-tiny lg:text-xs xl:text-sm mb-28'>
+            <div
+              className='absolute -left-28 -bottom-20 lg:-left-40 lg:-bottom-32 shadow-2xl'
+              data-aos='fade-down'
+              data-aos-easing='ease-in-out'
+              data-aos-delay='400'
+            >
+              <Image
+                src='/me.png'
+                width={
+                  window.innerWidth >= 1280
+                    ? 640 / 2.5
+                    : window.innerWidth >= 1024
+                    ? 640 / 3
+                    : 640 / 4
+                }
+                height={
+                  window.innerWidth >= 1280
+                    ? 771 / 2.5
+                    : window.innerWidth >= 1024
+                    ? 771 / 3
+                    : 771 / 4
+                }
+                quality={100}
+                alt={"picture of developer"}
+              />
+            </div>
+            <div
+              className='h-full w-full sm:p-4 lg:p-8 flex flex-row lg:gap-4 xl:gap-4 bg-primary-light bg-opacity-5 hover:bg-opacity-10 backdrop-filter backdrop-blur-md border-2 border-opacity-10 rounded-xl shadow-xl border-primary-light transition-all'
+              data-aos='fade-down'
+              data-aos-easing='ease-in-out'
+              data-aos-delay='600'
+            >
               <div>
                 {/* display each line in lines */}
                 {lines.map((line: number) => (

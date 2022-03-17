@@ -78,17 +78,7 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
                   Home
                 </div>
               </a>
-            </Link>
-            <Link href='#about'>
-              <a className='flex justify-center items-center h-full transition-all select-none group'>
-                <div className='flex flex-row gap-2 items-center group-hover:text-primary-1'>
-                  <div className='text-primary-light group-hover:text-primary-1'>
-                    <FiInfo />
-                  </div>
-                  About
-                </div>
-              </a>
-            </Link>
+            </Link> 
             <Link href='#projects'>
               <a className='flex justify-center items-center h-full transition-all select-none group'>
                 <div className='flex flex-row gap-2 items-center group-hover:text-primary-1'>

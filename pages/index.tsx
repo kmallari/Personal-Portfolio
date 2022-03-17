@@ -1,3 +1,5 @@
+// -----------------------------------------------
+
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
@@ -8,13 +10,13 @@ import { Projects } from "../components/Projects";
 import { BlurredBalls } from "../components/BlurredBalls";
 
 const Home: NextPage = () => {
-  // https://swiperjs.com/demos#mousewheel-control
   return (
     <>
       <BlurredBalls />
       <Header />
-      <Navbar />
       <Projects />
+      <Projects />
+      <Navbar />
     </>
   );
 };
