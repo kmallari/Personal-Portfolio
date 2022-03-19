@@ -147,7 +147,10 @@ export const Header: React.FC<HeaderProps> = ({}) => {
           </div>
         ) : null}
       </div>
-      <button className='absolute bottom-4 w-10 h-10 rounded-full border-2 border-primary-light drop-shadow-lg text-primary-light flex items-center justify-center transition-all opacity-25 hover:opacity-80'>
+      <a
+        className='absolute bottom-4 w-10 h-10 rounded-full border-2 border-primary-light drop-shadow-lg text-primary-light flex items-center justify-center transition-all opacity-25 hover:opacity-80'
+        href='#projects'
+      >
         <motion.div
           animate={{
             y: [3, -3, 3],
@@ -160,7 +163,7 @@ export const Header: React.FC<HeaderProps> = ({}) => {
         >
           <BiDownArrow />
         </motion.div>
-      </button>
+      </a>
     </div>
   );
 };

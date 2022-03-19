@@ -202,6 +202,9 @@ export const BlurredBalls = () => {
   const [speedX, setSpeedX] = useState(ORIG_SPEED_X);
   const [y, setY] = useState(0);
   const [speedY, setSpeedY] = useState(ORIG_SPEED_Y);
+
+  // I think this needs optimizing
+
   return (
     <div className='p-0 w-full h-screen fixed overflow-hidden'>
       <div className='absolute right-0 opacity-100'>
@@ -209,7 +212,7 @@ export const BlurredBalls = () => {
           animate={{ x: x, y: y }}
           transition={{
             ease: "linear",
-            duration: 0.1,
+            // duration: 0.1,
             // repeat: Infinity
           }}
           onAnimationComplete={() => {

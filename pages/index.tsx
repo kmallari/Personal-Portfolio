@@ -1,5 +1,3 @@
-// -----------------------------------------------
-
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
@@ -12,7 +10,7 @@ import { BlurredBalls } from "../components/BlurredBalls";
 const Home: NextPage = () => {
   return (
     <>
-      <BlurredBalls />
+      {/* <BlurredBalls /> */}
       <Header />
       <Projects />
       <Projects />
