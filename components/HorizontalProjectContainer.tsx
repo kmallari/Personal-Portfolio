@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import useWindowDimensions from "../hooks/useWindowDimensions";
 import { IoMdLink, IoLogoGithub } from "react-icons/io";
 
 interface HorizontalProjectContainerProps {
@@ -22,17 +23,20 @@ export const HorizontalProjectContainer: React.FC<
   description,
   technologies,
 }) => {
-  const x = image_src;
+  const { height, width } = useWindowDimensions();
+
   return (
-    <div className='h-1/2 w-full sm:p-4 lg:p-8 flex flex-row gap-4 xl:gap-8 bg-primary-light bg-opacity-5 backdrop-filter backdrop-blur-sm border-2 border-opacity-10 rounded-xl shadow-xl border-primary-light'>
-      <Image
-        src={image_src}
-        alt='preview-of-plinko'
-        width={494 / 2}
-        height={848 / 3.3}
-        quality={100}
-        className="rounded-lg"
-      />
+    <div className='h-auto w-5/6 lg:w-full lg:h-1/2 p-8 flex flex-row object-contain gap-8 bg-primary-light bg-opacity-5 backdrop-filter backdrop-blur-sm border-2 border-opacity-10 rounded-xl shadow-xl border-primary-light'>
+      <div className='object-contain'>
+        <Image
+          src={image_src}
+          alt='preview-of-plinko'
+          width={width != null && width > 1024 ? 494 / 2 : 494 / 3}
+          height={width != null && width > 1024 ? 848 / 2 : 848 / 3}
+          quality={100}
+          className='rounded-lg'
+        />
+      </div>
       <div className='flex flex-col w-full gap-8'>
         <div className='flex flex-row items-center justify-between text-3xl w-full'>
           <h2 className='font-dm font-bold text-primary-1'>{title}</h2>
@@ -45,7 +49,7 @@ export const HorizontalProjectContainer: React.FC<
                 <IoLogoGithub />
               </a>
             </Link>
-            <span className='text-base'>|</span>
+            <span className='text-base cursor-default'>|</span>
             <Link href={live_link}>
               <a
                 className='hover:text-primary-1 cursor-pointer'
@@ -56,7 +60,7 @@ export const HorizontalProjectContainer: React.FC<
             </Link>
           </div>
         </div>
-        <p className='text-primary-light transition-all leading-relaxed text-base font-dm_mono -mt-4'>
+        <p className='text-primary-light transition-all leading-relaxed text-sm font-dm_mono -mt-4'>
           {description}
         </p>
         <p className='text-primary-light hover:text-white transition-all leading-relaxed text-sm font-dm_mono -mt-4'>

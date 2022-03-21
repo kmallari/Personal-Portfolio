@@ -27,7 +27,7 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
 
   const checkHamburger = (): void => {
     if (width != null) {
-      if (width <= 800) {
+      if (width <= 768) {
         setIsHamburger(true);
         // setShowHamburgerMenu(false);
       } else {
@@ -105,13 +105,13 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
       <AnimatePresence>
         {showHamburgerMenu && (
           <motion.div
-            className='bg-opacity-20 backdrop-filter backdrop-blur-sm flex flex-col top-16 w-full fixed overflow-hidden font-dm text-white'
+            className='h-screen bg-opacity-20 backdrop-filter backdrop-blur-sm flex flex-col top-16 w-full fixed overflow-hidden font-dm text-white'
             initial={{ x: -400 }}
             animate={{ x: 0 }}
             exit={{ x: -768 }}
           >
             <Link href='/'>
-              <a className='select-none pl-12 pt-4 pb-4 w-full overflow-x-hidden hover:bg-dark-neutral hover:bg-opacity-10 transition-all group'>
+              <a className='select-none pl-12 pt-4 pb-4 w-full overflow-x-hidden hover:bg-primary-light hover:bg-opacity-10 group'>
                 <div className='flex flex-row gap-4 items-center group-hover:text-primary-1'>
                   <div className='text-primary-light group-hover:text-primary-1'>
                     <FiBriefcase />
@@ -120,18 +120,8 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
                 </div>
               </a>
             </Link>
-            <Link href='#about'>
-              <a className='select-none pl-12 pt-4 pb-4 w-full overflow-x-hidden hover:bg-dark-neutral hover:bg-opacity-10 transition-all group'>
-                <div className='flex flex-row gap-4 items-center group-hover:text-primary-1'>
-                  <div className='text-primary-light group-hover:text-primary-1'>
-                    <FiInfo />
-                  </div>
-                  About
-                </div>
-              </a>
-            </Link>
             <Link href='#projects'>
-              <a className='select-none pl-12 pt-4 pb-4 w-full overflow-x-hidden hover:bg-dark-neutral hover:bg-opacity-10 transition-all group'>
+              <a className='select-none pl-12 pt-4 pb-4 w-full overflow-x-hidden hover:bg-primary-light hover:bg-opacity-10 group'>
                 <div className='flex flex-row gap-4 items-center group-hover:text-primary-1'>
                   <div className='text-primary-light group-hover:text-primary-1'>
                     <FiCode />
@@ -141,7 +131,7 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
               </a>
             </Link>
             <Link href='#contact'>
-              <a className='select-none pl-12 pt-4 pb-4 w-full overflow-x-hidden hover:bg-dark-neutral hover:bg-opacity-10 transition-all group'>
+              <a className='select-none pl-12 pt-4 pb-4 w-full overflow-x-hidden hover:bg-primary-light hover:bg-opacity-10 group'>
                 <div className='flex flex-row gap-4 items-center group-hover:text-primary-1'>
                   <div className='text-primary-light group-hover:text-primary-1'>
                     <FiBriefcase />
