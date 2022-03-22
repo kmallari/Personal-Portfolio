@@ -156,7 +156,7 @@ body {
     linear-gradient(to bottom, rgb(19, 19, 20) 1px, transparent 1px);
   background-attachment: fixed;
   scroll-behavior: smooth;
-  /* overflow: hidden; */
+  overflow-x: hidden;
 }
 
 body::before {

@@ -29,7 +29,7 @@ export const Header: React.FC<HeaderProps> = ({}) => {
       <div className='flex flex-row items-center justify-center gap-8 lg:gap-16'>
         <div className='w-2/3 md:w-1/3 transition-all'>
           <h2
-            className='text-5xl md:text-4xl lg:text-5xl font-dm font-bold text-primary-1 leading-normal select-text drop-shadow-lg'
+            className='text-4xl lg:text-5xl font-dm font-bold text-primary-1 leading-normal select-text drop-shadow-lg'
             data-aos='fade-down'
             data-aos-easing='ease-in-out'
           >

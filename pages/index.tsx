@@ -7,6 +7,7 @@ import { Header } from "../components/Header";
 import { Projects } from "../components/Projects";
 import { BlurredBalls } from "../components/BlurredBalls";
 import { ContactForm } from "../components/ContactForm";
+import { Footer } from "../components/Footer";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
@@ -23,6 +24,7 @@ const Home: NextPage = () => {
       <Header />
       <Projects />
       <ContactForm />
+      <Footer />
       <Navbar />
     </>
   );
