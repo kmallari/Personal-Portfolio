@@ -1,13 +1,9 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 
-type Data = {
-  name: string;
-};
-
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse
 ) {
   require("dotenv").config();
 
@@ -47,6 +43,6 @@ export default function handler(
     if (err) console.log(err);
     else console.log(info);
   });
-  
+
   res.send("success");
 }
