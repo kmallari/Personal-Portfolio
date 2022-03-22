@@ -9,16 +9,8 @@ import { motion, useCycle, AnimatePresence } from "framer-motion";
 interface NavbarProps {}
 
 export const Navbar: React.FC<NavbarProps> = ({}) => {
-  //   const glass = {
-  // "background": "rgba(145, 150, 153, 0.2)",
-  // "borderRadius": "16px",
-  // "boxShadow": "0 4px 30px rgba(0, 0, 0, 0.1)",
-  // backdrop-filter: blur(5px),
-  // -webkit-backdrop-filter: blur(5px),
-  // "border": "1px solid rgba(145, 150, 153, 0.3)"
-  // }
-
   const [isHamburger, setIsHamburger] = useState<boolean>(false);
+  const [scroll, setScroll] = useState<boolean>(false);
   const [showHamburgerMenu, onShowHamburgerMenu] = useCycle<boolean>(
     false,
     true
@@ -52,11 +44,21 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
     checkHamburger();
   }, []);
 
+  useEffect(() => {
+    document.addEventListener("scroll", () => {
+      const scrollCheck = window.scrollY < 100;
+      setScroll(scrollCheck);
+    });
+  });
+
   return (
     <>
       <nav
-        className={`bg-dark-neutral bg-opacity-20
-         backdrop-filter backdrop-blur-sm shadow-xl flex flex-row justify-between h-16 w-full items-center pl-16 pr-16 lg:pl-32 lg:pr-32 font-dm fixed top-0 text-white transition-all`}
+        className={`bg-dark-colored flex flex-row justify-between h-16 w-full items-center pl-16 pr-16 lg:pl-32 lg:pr-32 font-dm fixed top-0 text-white transition-all ${
+          scroll
+            ? "bg-opacity-30"
+            : "bg-opacity-0 backdrop-filter backdrop-blur-sm shadow-xl"
+        }`}
       >
         <div className='flex flex-row gap-6 items-center'>
           {/* 904 x 1100 */}
@@ -78,7 +80,7 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
                   Home
                 </div>
               </a>
-            </Link> 
+            </Link>
             <Link href='#projects'>
               <a className='flex justify-center items-center h-full transition-all select-none group'>
                 <div className='flex flex-row gap-2 items-center group-hover:text-primary-1'>

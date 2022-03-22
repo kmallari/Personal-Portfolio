@@ -28,7 +28,12 @@ export const Projects: React.FC<ProjectsProps> = ({}) => {
       id='projects'
       className='w-full h-auto flex self-start items-center my-32'
     >
-      <div className='flex flex-row self-start gap-8 justify-center h-2/3 w-full'>
+      <div
+        className='flex flex-row self-start gap-8 justify-center h-2/3 w-full'
+        data-aos='fade-down'
+        data-aos-easing='ease-in-out'
+        data-aos-delay='0'
+      >
         {isWidthSmall ? null : (
           <div className='h-auto w-1/3 sm:p-4 lg:p-8 flex flex-col object-contain gap-8 bg-primary-light bg-opacity-5 backdrop-filter backdrop-blur-sm border-2 border-opacity-10 rounded-xl shadow-xl border-primary-light'>
             <div className='object-contain'>
@@ -43,7 +48,7 @@ export const Projects: React.FC<ProjectsProps> = ({}) => {
             </div>
             <div className='flex flex-row items-center justify-between text-3xl'>
               <h2 className='font-dm font-bold text-primary-1'>
-                {width != null && width >= 1280 
+                {width != null && width >= 1280
                   ? "Personal Portfolio"
                   : "Portfolio"}
               </h2>
@@ -84,7 +89,12 @@ export const Projects: React.FC<ProjectsProps> = ({}) => {
           </div>
         )}
 
-        <div className='flex flex-col justify-center items-center gap-8 lg:w-2/4 xl:w-1/3'>
+        <div
+          className='flex flex-col justify-center items-center gap-8 lg:w-2/4 xl:w-1/3'
+          data-aos='fade-down'
+          data-aos-easing='ease-in-out'
+          data-aos-delay='200'
+        >
           {isWidthSmall ? (
             <HorizontalProjectContainer
               github_link='https://github.com/kmallari/Personal-Portfolio'

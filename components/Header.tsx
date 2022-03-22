@@ -32,7 +32,7 @@ export const Header: React.FC<HeaderProps> = ({}) => {
   return (
     <div
       id='home'
-      className='h-screen min-h-max relative flex flex-col items-center justify-center cursor-default'
+      className='h-screen relative flex flex-col items-center justify-center cursor-default'
     >
       <div className='flex flex-row items-center justify-center gap-8 lg:gap-16'>
         <div className='w-2/3 md:w-1/3 transition-all'>
