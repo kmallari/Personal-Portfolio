@@ -3,8 +3,6 @@ import Image from "next/image";
 import { BiDownArrow } from "react-icons/bi";
 import { motion } from "framer-motion";
 import useWindowDimensions from "../hooks/useWindowDimensions";
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 interface HeaderProps {}
 
@@ -14,10 +12,7 @@ for (let i = 0; i < 21; i++) {
 }
 
 export const Header: React.FC<HeaderProps> = ({}) => {
-  useEffect(() => {
-    AOS.init();
-    AOS.refresh();
-  }, []);
+
 
   const { height, width } = useWindowDimensions();
   const bday = new Date("June 2, 99 00:00:00 GMT+8:00");
