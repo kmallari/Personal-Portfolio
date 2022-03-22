@@ -79,7 +79,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({}) => {
 
   return (
     <div
-      className='h-auto w-full bg-primary-light bg-opacity-5 backdrop-filter backdrop-blur-sm border-t-2 border-primary-light border-opacity-10 flex flex-col md:flex-row items-center md:items-start justify-center text-primary-light font-dm gap-8 lg:gap-24 py-32 shadow-2xl'
+      className='h-auto w-full bg-primary-light bg-opacity-5 border-t-2 border-primary-light border-opacity-10 flex flex-col md:flex-row items-center md:items-start justify-center text-primary-light font-dm gap-8 lg:gap-24 py-32 shadow-2xl'
       id='contact'
     >
       <div className='h-auto flex flex-col gap-4'>

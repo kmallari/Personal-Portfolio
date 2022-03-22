@@ -26,7 +26,7 @@ export const HorizontalProjectContainer: React.FC<
   const { height, width } = useWindowDimensions();
 
   return (
-    <div className='h-auto w-5/6 lg:w-full lg:h-1/2 p-8 flex flex-row object-contain gap-8 bg-primary-light bg-opacity-5 backdrop-filter backdrop-blur-sm border-2 border-opacity-10 rounded-xl shadow-xl border-primary-light'>
+    <div className='h-auto w-5/6 lg:w-full lg:h-1/2 p-8 flex flex-row object-contain gap-8 bg-primary-light bg-opacity-5 border-2 border-opacity-10 rounded-xl shadow-xl border-primary-light'>
       <div className='object-contain'>
         <Image
           src={image_src}

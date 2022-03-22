@@ -12,8 +12,6 @@ for (let i = 0; i < 21; i++) {
 }
 
 export const Header: React.FC<HeaderProps> = ({}) => {
-
-
   const { height, width } = useWindowDimensions();
   const bday = new Date("June 2, 99 00:00:00 GMT+8:00");
   const [diff, setDiff] = useState<number>(0);
@@ -54,40 +52,38 @@ export const Header: React.FC<HeaderProps> = ({}) => {
         </div>
 
         {width != null && width >= 768 ? (
-          <div className='h-auto w-auto backdrop-blur-sm font-dm_mono text-primary-light flex flex-col items-center text-tiny lg:text-xs xl:text-sm mb-28'>
+          <div className='h-auto w-auto font-dm_mono text-primary-light flex flex-col items-center text-tiny lg:text-xs xl:text-sm mb-28'>
             <div
-              className='absolute -left-28 -bottom-20 lg:-left-40 lg:-bottom-32 shadow-2xl'
-              data-aos='fade-down'
-              data-aos-easing='ease-in-out'
-              data-aos-delay='400'
-            >
-              <Image
-                src='/me.png'
-                width={
-                  window.innerWidth >= 1280
-                    ? 640 / 2.5
-                    : window.innerWidth >= 1024
-                    ? 640 / 3
-                    : 640 / 4
-                }
-                height={
-                  window.innerWidth >= 1280
-                    ? 771 / 2.5
-                    : window.innerWidth >= 1024
-                    ? 771 / 3
-                    : 771 / 4
-                }
-                quality={100}
-                alt={"picture of developer"}
-              />
-            </div>
-            <div
-              className='h-full w-full sm:p-4 lg:p-8 flex flex-row lg:gap-4 xl:gap-4 bg-primary-light bg-opacity-5 hover:bg-opacity-10 backdrop-filter backdrop-blur-md border-2 border-opacity-10 rounded-xl shadow-xl border-primary-light transition-all'
+              className='h-full w-full sm:p-4 lg:p-8 flex flex-row lg:gap-4 xl:gap-4 bg-primary-light bg-opacity-5 hover:bg-opacity-10 -md border-2 border-opacity-10 rounded-xl shadow-xl border-primary-light transition-all'
               data-aos='fade-down'
               data-aos-easing='ease-in-out'
               data-aos-delay='600'
             >
-              <div>
+              <div className='absolute -left-24 -bottom-24 lg:-left-32 lg:-bottom-48'>
+                <Image
+                  data-aos='fade-down'
+                  data-aos-easing='ease-in-out'
+                  data-aos-delay='400'
+                  src='/me.png'
+                  width={
+                    window.innerWidth >= 1280
+                      ? 640 / 2.5
+                      : window.innerWidth >= 1024
+                      ? 640 / 3
+                      : 640 / 4
+                  }
+                  height={
+                    window.innerWidth >= 1280
+                      ? 771 / 2.5
+                      : window.innerWidth >= 1024
+                      ? 771 / 3
+                      : 771 / 4
+                  }
+                  quality={100}
+                  alt={"picture of developer"}
+                />
+              </div>
+              <div className='z-10'>
                 {/* display each line in lines */}
                 {lines.map((line: number) => (
                   <p key={line}>{line + 1}</p>

@@ -35,7 +35,7 @@ export const Projects: React.FC<ProjectsProps> = ({}) => {
         data-aos-delay='0'
       >
         {isWidthSmall ? null : (
-          <div className='h-auto w-1/3 sm:p-4 lg:p-8 flex flex-col object-contain gap-8 bg-primary-light bg-opacity-5 backdrop-filter backdrop-blur-sm border-2 border-opacity-10 rounded-xl shadow-xl border-primary-light'>
+          <div className='h-auto w-1/3 sm:p-4 lg:p-8 flex flex-col object-contain gap-8 bg-primary-light bg-opacity-5 border-2 border-opacity-10 rounded-xl shadow-xl border-primary-light'>
             <div className='object-contain'>
               <Image
                 src='/portfolio.png'
