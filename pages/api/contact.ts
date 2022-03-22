@@ -48,5 +48,5 @@ export default function handler(
     else console.log(info);
   });
   
-  res.send("Success");
+  // res.send("Success");
 }
