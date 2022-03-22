@@ -104,7 +104,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({}) => {
             Name / Organization
           </label>
           <input
-            className='font-dm_mono appearance-none block w-full bg-white text-dark-neutral border border-primary-light border-opacity-20 rounded py-3 px-4 leading-tight hover:bg-opacity-90 placeholder-opacity-30 placeholder-dark-neutral transition ease-in-out focus:text-gray-700 focus:bg-white focus:border-primary-1 focus:outline-none'
+            className={`font-dm_mono appearance-none block w-full bg-white text-dark-neutral border border-primary-light border-opacity-20 rounded py-3 px-4 leading-tight hover:bg-opacity-90 placeholder-opacity-30 placeholder-dark-neutral transition ease-in-out focus:text-gray-700 focus:bg-white focus:border-primary-1 focus:outline-none ${form.nameError != "" && ("border-primary-2 border-opacity-100")}`}
             type='text'
             id='name'
             name='name'
@@ -125,7 +125,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({}) => {
             Email
           </label>
           <input
-            className='font-dm_mono appearance-none block w-full bg-white text-dark-neutral border border-primary-light border-opacity-20 rounded py-3 px-4 leading-tight hover:bg-opacity-90 placeholder-opacity-30 placeholder-dark-neutral transition ease-in-out focus:text-gray-700 focus:bg-white focus:border-primary-1 focus:outline-none'
+            className={`font-dm_mono appearance-none block w-full bg-white text-dark-neutral border border-primary-light border-opacity-20 rounded py-3 px-4 leading-tight hover:bg-opacity-90 placeholder-opacity-30 placeholder-dark-neutral transition ease-in-out focus:text-gray-700 focus:bg-white focus:border-primary-1 focus:outline-none ${form.emailError != "" && ("border-primary-2 border-opacity-100")}`}
             type='text'
             id='email'
             name='email'
@@ -135,7 +135,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({}) => {
             autoComplete='off'
           />
           {form.emailError && (
-            <p className='text-sm text-primary-2'>* {form.emailError}</p>
+            <p className='text-sm text-primary-2'>* {form.messageError}</p>
           )}
         </div>
         <div>
@@ -146,7 +146,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({}) => {
             Message
           </label>
           <textarea
-            className='font-dm_mono appearance-none block w-full bg-white text-dark-neutral border border-primary-light border-opacity-20 rounded py-3 px-4 leading-tight hover:bg-opacity-90 placeholder-opacity-30 placeholder-dark-neutral transition ease-in-out focus:text-gray-700 focus:bg-white focus:border-primary-1 focus:outline-none'
+            className={`font-dm_mono appearance-none block w-full bg-white text-dark-neutral border border-primary-light border-opacity-20 rounded py-3 px-4 leading-tight hover:bg-opacity-90 placeholder-opacity-30 placeholder-dark-neutral transition ease-in-out focus:text-gray-700 focus:bg-white focus:border-primary-1 focus:outline-none ${form.nameError != "" && ("border-primary-2 border-opacity-100")}`}
             id='message'
             name='message'
             placeholder='Enter message here...'

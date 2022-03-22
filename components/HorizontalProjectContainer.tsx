@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 import { IoMdLink, IoLogoGithub } from "react-icons/io";
+import { motion } from "framer-motion";
 
 interface HorizontalProjectContainerProps {
   github_link: string;
@@ -26,7 +27,13 @@ export const HorizontalProjectContainer: React.FC<
   const { height, width } = useWindowDimensions();
 
   return (
-    <div className='h-auto w-5/6 lg:w-full lg:h-1/2 p-8 flex flex-row object-contain gap-8 bg-primary-light bg-opacity-5 border-2 border-opacity-10 rounded-xl shadow-xl border-primary-light'>
+    <motion.div
+      className='h-auto w-5/6 lg:w-full lg:h-1/2 p-8 flex flex-row object-contain gap-8 bg-primary-light bg-opacity-5 border-2 border-opacity-10 rounded-xl shadow-xl border-primary-light hover:bg-opacity-10 transition'
+      whileHover={{
+        scale: 1.025,
+        transition: { duration: 0.1 },
+      }}
+    >
       <div className='object-contain'>
         <Image
           src={image_src}
@@ -68,6 +75,6 @@ export const HorizontalProjectContainer: React.FC<
           <span className='opacity-50'> {technologies}</span>
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 };

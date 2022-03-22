@@ -54,11 +54,7 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
   return (
     <>
       <nav
-        className={`bg-dark-colored flex flex-row justify-between h-16 w-full items-center pl-16 pr-16 lg:pl-32 lg:pr-32 font-dm fixed top-0 text-white transition-all ${
-          scroll
-            ? "bg-opacity-30"
-            : "bg-opacity-0 -sm shadow-xl"
-        }`}
+        className={`flex flex-row justify-between h-16 w-full items-center pl-16 pr-16 lg:pl-32 lg:pr-32 font-dm fixed top-0 text-white transition-all backdrop-blur-sm`}
       >
         <div className='flex flex-row gap-6 items-center'>
           {/* 904 x 1100 */}
@@ -107,7 +103,7 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
       <AnimatePresence>
         {showHamburgerMenu && (
           <motion.div
-            className='h-screen bg-opacity-50 -sm flex flex-col top-16 w-full fixed overflow-hidden font-dm text-white bg-dark-neutral'
+            className='h-screen bg-opacity-90 -sm flex flex-col top-16 w-full fixed overflow-hidden font-dm text-white bg-black'
             initial={{ x: -400 }}
             animate={{ x: 0 }}
             exit={{ x: -768 }}

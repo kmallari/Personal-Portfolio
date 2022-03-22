@@ -4,6 +4,7 @@ import Link from "next/link";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 import { HorizontalProjectContainer } from "./HorizontalProjectContainer";
 import { IoMdLink, IoLogoGithub } from "react-icons/io";
+import { motion } from "framer-motion";
 
 interface ProjectsProps {}
 
@@ -26,7 +27,7 @@ export const Projects: React.FC<ProjectsProps> = ({}) => {
   return (
     <div
       id='projects'
-      className='w-full h-auto flex self-start items-center my-32'
+      className='w-full h-auto flex self-start items-center py-32'
     >
       <div
         className='flex flex-row self-start gap-8 justify-center h-2/3 w-full'
@@ -35,7 +36,13 @@ export const Projects: React.FC<ProjectsProps> = ({}) => {
         data-aos-delay='0'
       >
         {isWidthSmall ? null : (
-          <div className='h-auto w-1/3 sm:p-4 lg:p-8 flex flex-col object-contain gap-8 bg-primary-light bg-opacity-5 border-2 border-opacity-10 rounded-xl shadow-xl border-primary-light'>
+          <motion.div
+            className='h-auto w-1/3 sm:p-4 lg:p-8 flex flex-col object-contain gap-8 bg-primary-light bg-opacity-5 border-2 border-opacity-10 rounded-xl shadow-xl border-primary-light hover:bg-opacity-10 transition-all'
+            whileHover={{
+              scale: 1.025,
+              transition: { duration: 0.1 },
+            }}
+          >
             <div className='object-contain'>
               <Image
                 src='/portfolio.png'
@@ -86,7 +93,7 @@ export const Projects: React.FC<ProjectsProps> = ({}) => {
                 NextJS, React, TypeScript, Tailwind CSS, Framer Motion
               </span>
             </p>
-          </div>
+          </motion.div>
         )}
 
         <div
