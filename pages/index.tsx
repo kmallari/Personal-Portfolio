@@ -20,7 +20,7 @@ const Home: NextPage = () => {
 
   return (
     <>
-      {/* <BlurredBalls /> */}
+      <BlurredBalls />
       <Header />
       <Projects />
       <ContactForm />

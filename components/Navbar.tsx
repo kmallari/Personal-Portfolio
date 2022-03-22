@@ -54,7 +54,7 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
   return (
     <>
       <nav
-        className={`flex flex-row justify-between h-16 w-full items-center pl-16 pr-16 lg:pl-32 lg:pr-32 font-dm fixed top-0 text-white transition-all backdrop-blur-sm`}
+        className={`flex flex-row justify-between h-16 w-full items-center pl-16 pr-16 lg:pl-32 lg:pr-32 font-dm fixed top-0 text-white transition-all backdrop-blur-sm z-50`}
       >
         <div className='flex flex-row gap-6 items-center'>
           {/* 904 x 1100 */}
