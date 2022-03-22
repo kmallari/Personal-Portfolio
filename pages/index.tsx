@@ -6,6 +6,7 @@ import { Navbar } from "../components/Navbar";
 import { Header } from "../components/Header";
 import { Projects } from "../components/Projects";
 import { BlurredBalls } from "../components/BlurredBalls";
+import { ContactForm } from "../components/ContactForm";
 
 const Home: NextPage = () => {
   return (
@@ -13,7 +14,7 @@ const Home: NextPage = () => {
       {/* <BlurredBalls /> */}
       <Header />
       <Projects />
-      <Projects />
+      <ContactForm />
       <Navbar />
     </>
   );

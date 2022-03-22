@@ -107,7 +107,7 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
       <AnimatePresence>
         {showHamburgerMenu && (
           <motion.div
-            className='h-screen bg-opacity-20 backdrop-filter backdrop-blur-sm flex flex-col top-16 w-full fixed overflow-hidden font-dm text-white'
+            className='h-screen bg-opacity-50 backdrop-filter backdrop-blur-sm flex flex-col top-16 w-full fixed overflow-hidden font-dm text-white bg-dark-neutral'
             initial={{ x: -400 }}
             animate={{ x: 0 }}
             exit={{ x: -768 }}

@@ -11,7 +11,6 @@ interface HeaderProps {}
 const lines: number[] = [];
 for (let i = 0; i < 21; i++) {
   lines.push(i);
-  console.log("DOES THIS RUN?");
 }
 
 export const Header: React.FC<HeaderProps> = ({}) => {
