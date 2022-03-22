@@ -53,7 +53,27 @@ export const ContactForm: React.FC<ContactFormProps> = ({}) => {
     e.preventDefault();
     const isValid = validate();
     if (isValid) {
-      console.log(form);
+      fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          Accept: "application/json, text/plain, */*",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      }).then((res) => {
+        console.log("Response received");
+        if (res.status === 200) {
+          console.log("Response succeeded!");
+          setForm({
+            name: "",
+            email: "",
+            message: "",
+            nameError: "",
+            emailError: "",
+            messageError: "",
+          });
+        }
+      });
     }
   };
 
@@ -106,7 +126,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({}) => {
           </label>
           <input
             className='font-dm_mono appearance-none block w-full bg-white text-dark-neutral border border-primary-light border-opacity-20 rounded py-3 px-4 leading-tight hover:bg-opacity-90 placeholder-opacity-30 placeholder-dark-neutral transition ease-in-out focus:text-gray-700 focus:bg-white focus:border-primary-1 focus:outline-none'
-            type='email'
+            type='text'
             id='email'
             name='email'
             placeholder='juan.cruz@email.com'
