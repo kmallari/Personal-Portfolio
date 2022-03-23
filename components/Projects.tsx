@@ -45,7 +45,9 @@ export const Projects: React.FC<ProjectsProps> = ({ theme }) => {
           >
             <div className='object-contain'>
               <Image
-                src={theme === "light" ? '/portfolio_light.png' : '/portfolio.png'}
+                src={
+                  theme === "light" ? "/portfolio_light.png" : "/portfolio.png"
+                }
                 alt='portfolio-preview'
                 width={1690 / 2.4}
                 height={961 / 2.4}
@@ -106,7 +108,11 @@ export const Projects: React.FC<ProjectsProps> = ({ theme }) => {
             <HorizontalProjectContainer
               github_link='https://github.com/kmallari/Personal-Portfolio'
               live_link='/'
-              image_src={theme === "light" ? '/portfolio_vertical_light.png' :'/portfolio_vertical.png'}
+              image_src={
+                theme === "light"
+                  ? "/portfolio_vertical_light.png"
+                  : "/portfolio_vertical.png"
+              }
               title='Portfolio'
               description="You're looking at it! It's where I showcase the personal projects that I'm especially pleased with. I'm proud of the outcome of the website, especially when it comes to the aesthetics."
               technologies='React, TypeScript, NextJS, Tailwind CSS, Framer Motion'

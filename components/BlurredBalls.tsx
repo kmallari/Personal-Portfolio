@@ -18,7 +18,7 @@ export const BlurredBalls: React.FC<BlurredBallsProps> = ({ theme }) => {
   const generatePos = (position: null | number, size: number) => {
     if (position != null) {
       const positions: number[] = [];
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < 5; i++) {
         {
           const pos = Math.floor(Math.random() * (position - 100)) + 100;
           positions.push(pos);
@@ -73,7 +73,7 @@ export const BlurredBalls: React.FC<BlurredBallsProps> = ({ theme }) => {
           animate={{ x: xPositions1, y: yPositions1, rotate: rotations1 }}
           transition={{
             ease: "easeInOut",
-            duration: 120,
+            duration: 30,
             // repeat: Infinity,
           }}
           onAnimationComplete={() => {
@@ -88,7 +88,7 @@ export const BlurredBalls: React.FC<BlurredBallsProps> = ({ theme }) => {
           animate={{ x: xPositions2, y: yPositions2, rotate: rotations2 }}
           transition={{
             ease: "easeInOut",
-            duration: 100,
+            duration: 30,
             // repeat: Infinity,
           }}
           onAnimationComplete={() => {
@@ -103,7 +103,7 @@ export const BlurredBalls: React.FC<BlurredBallsProps> = ({ theme }) => {
           animate={{ x: xPositions3, y: yPositions3, rotate: rotations3 }}
           transition={{
             ease: "easeInOut",
-            duration: 80,
+            duration: 30,
             // repeat: Infinity,
           }}
           onAnimationComplete={() => {

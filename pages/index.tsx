@@ -34,7 +34,6 @@ const Home: NextPage = () => {
   };
 
   const handleThemeChange = (): void => {
-    console.log(theme);
     if (theme === "light") {
       setTheme("dark");
     } else {
