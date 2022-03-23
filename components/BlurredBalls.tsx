@@ -3,9 +3,13 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 
+interface BlurredBallsProps {
+  theme: string;
+}
+
 const ORIG_SPEED_X = 15;
 const ORIG_SPEED_Y = 15;
-export const BlurredBalls = () => {
+export const BlurredBalls: React.FC<BlurredBallsProps> = ({ theme }) => {
   const { height, width } = useWindowDimensions();
 
   // generate 10 random x and y positions within the viewport with a maximum
@@ -36,11 +40,11 @@ export const BlurredBalls = () => {
     return rotations;
   };
 
-  const [xPositions1, setXPositions1] = useState(generatePos(width, 400));
-  const [yPositions1, setYPositions1] = useState(generatePos(height, 400));
+  const [xPositions1, setXPositions1] = useState(generatePos(width, 500));
+  const [yPositions1, setYPositions1] = useState(generatePos(height, 500));
   const [rotations1, setRotations1] = useState(generateRotations());
-  const [xPositions2, setXPositions2] = useState(generatePos(width, 400));
-  const [yPositions2, setYPositions2] = useState(generatePos(height, 400));
+  const [xPositions2, setXPositions2] = useState(generatePos(width, 300));
+  const [yPositions2, setYPositions2] = useState(generatePos(height, 300));
   const [rotations2, setRotations2] = useState(generateRotations());
   const [xPositions3, setXPositions3] = useState(generatePos(width, 400));
   const [yPositions3, setYPositions3] = useState(generatePos(height, 400));
@@ -64,12 +68,12 @@ export const BlurredBalls = () => {
 
   return (
     <div className='p-0 w-full h-screen fixed overflow-hidden'>
-      <div className='absolute top-0 left-0 opacity-40'>
+      <div className='absolute top-0 left-0 opacity-60 dark:opacity-40'>
         <motion.div
           animate={{ x: xPositions1, y: yPositions1, rotate: rotations1 }}
           transition={{
             ease: "easeInOut",
-            duration: 100,
+            duration: 120,
             // repeat: Infinity,
           }}
           onAnimationComplete={() => {
@@ -79,7 +83,7 @@ export const BlurredBalls = () => {
           <Image alt='' src='/ball-4.png' width={500} height={500} />
         </motion.div>
       </div>
-      <div className='absolute top-0 left-0 opacity-20'>
+      <div className='absolute top-0 left-0 opacity-40 dark:opacity-20'>
         <motion.div
           animate={{ x: xPositions2, y: yPositions2, rotate: rotations2 }}
           transition={{
@@ -94,19 +98,24 @@ export const BlurredBalls = () => {
           <Image alt='' src='/ball-5.png' width={300} height={300} />
         </motion.div>
       </div>
-      <div className='absolute top-0 left-0 opacity-20'>
+      <div className='absolute top-0 left-0 opacity-60 dark:opacity-20'>
         <motion.div
           animate={{ x: xPositions3, y: yPositions3, rotate: rotations3 }}
           transition={{
             ease: "easeInOut",
-            duration: 100,
+            duration: 80,
             // repeat: Infinity,
           }}
           onAnimationComplete={() => {
             generateNewPositions();
           }}
         >
-          <Image alt='' src='/ball-1.png' width={400} height={400} />
+          <Image
+            alt=''
+            src={theme === "light" ? "/ball-.png" : "/ball-1.png"}
+            width={400}
+            height={400}
+          />
         </motion.div>
       </div>
     </div>

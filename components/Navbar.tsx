@@ -4,11 +4,15 @@ import Image from "next/image";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 import { RiMenuUnfoldLine } from "react-icons/ri";
 import { FiHome, FiInfo, FiCode, FiBriefcase } from "react-icons/fi";
+import { MdOutlineLightMode, MdOutlineDarkMode } from "react-icons/md";
 import { motion, useCycle, AnimatePresence } from "framer-motion";
 
-interface NavbarProps {}
+interface NavbarProps {
+  handleThemeChange: () => void;
+  theme: string;
+}
 
-export const Navbar: React.FC<NavbarProps> = ({}) => {
+export const Navbar: React.FC<NavbarProps> = ({ handleThemeChange, theme }) => {
   const [isHamburger, setIsHamburger] = useState<boolean>(false);
   const [scroll, setScroll] = useState<boolean>(false);
   const [showHamburgerMenu, onShowHamburgerMenu] = useCycle<boolean>(
@@ -21,7 +25,6 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
     if (width != null) {
       if (width <= 768) {
         setIsHamburger(true);
-        // setShowHamburgerMenu(false);
       } else {
         setIsHamburger(false);
         if (showHamburgerMenu === true) {
@@ -32,7 +35,6 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
   };
 
   const handleHamburgerClick = (): void => {
-    console.log(showHamburgerMenu);
     onShowHamburgerMenu();
   };
 
@@ -47,14 +49,16 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
   useEffect(() => {
     document.addEventListener("scroll", () => {
       const scrollCheck = window.scrollY < 100;
-      setScroll(scrollCheck);
+      setScroll(!scrollCheck);
     });
   });
 
   return (
     <>
       <nav
-        className={`flex flex-row justify-between h-16 w-full items-center pl-16 pr-16 lg:pl-32 lg:pr-32 font-dm fixed top-0 text-white transition-all backdrop-blur-sm z-50`}
+        className={`flex flex-row justify-between h-16 w-full items-center pl-16 pr-16 lg:pl-32 lg:pr-32 font-dm fixed top-0 text-dark-neutral dark:text-white ${
+          scroll && "backdrop-blur-sm"
+        } z-50`}
       >
         <Link href='/'>
           <a>
@@ -68,15 +72,29 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
           </a>
         </Link>
         {isHamburger ? (
-          <div onClick={handleHamburgerClick} className='cursor-pointer'>
-            <RiMenuUnfoldLine style={{ color: "#C4CBCA" }} />
+          <div className='flex items-center gap-10'>
+            <button
+              onClick={handleThemeChange}
+              className='bg-dark-neutral dark:bg-primary-light bg-opacity-10 dark:bg-opacity-10 dark:hover:bg-opacity-20 hover:bg-opacity-30 p-2 rounded-full'
+            >
+              {theme === "light" ? (
+                <MdOutlineLightMode />
+              ) : (
+                <MdOutlineDarkMode />
+              )}
+            </button>
+            <div onClick={handleHamburgerClick} className='cursor-pointer'>
+              <RiMenuUnfoldLine
+                style={{ color: theme === "dark" ? "#C4CBCA" : "#0A0F0D" }}
+              />
+            </div>
           </div>
         ) : (
           <div className='flex flex-row gap-14 h-full items-center'>
             <Link href='/'>
-              <a className='flex justify-center items-center h-full transition-all select-none group'>
-                <div className='flex flex-row gap-2 items-center group-hover:text-primary-1'>
-                  <div className='text-primary-light group-hover:text-primary-1'>
+              <a className='flex justify-center items-center h-full select-none group'>
+                <div className='flex flex-row gap-2 items-center group-hover:text-teal-700 dark:group-hover:text-primary-1'>
+                  <div className='text-gray-500 dark:text-primary-light group-hover:text-teal-700 dark:group-hover:text-primary-1'>
                     <FiHome />
                   </div>
                   Home
@@ -84,9 +102,9 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
               </a>
             </Link>
             <Link href='#projects'>
-              <a className='flex justify-center items-center h-full transition-all select-none group'>
-                <div className='flex flex-row gap-2 items-center group-hover:text-primary-1'>
-                  <div className='text-primary-light group-hover:text-primary-1'>
+              <a className='flex justify-center items-center h-full select-none group'>
+                <div className='flex flex-row gap-2 items-center group-hover:text-teal-700 dark:group-hover:text-primary-1'>
+                  <div className='text-gray-500 dark:text-primary-light group-hover:text-teal-700 dark:group-hover:text-primary-1'>
                     <FiCode />
                   </div>
                   Projects
@@ -94,30 +112,40 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
               </a>
             </Link>
             <Link href='#contact'>
-              <a className='flex justify-center items-center h-full transition-all select-none group'>
-                <div className='flex flex-row gap-2 items-center group-hover:text-primary-1'>
-                  <div className='text-primary-light group-hover:text-primary-1'>
+              <a className='flex justify-center items-center h-full select-none group'>
+                <div className='flex flex-row gap-2 items-center group-hover:text-teal-700 dark:group-hover:text-primary-1'>
+                  <div className='text-gray-500 dark:text-primary-light group-hover:text-teal-700 dark:group-hover:text-primary-1'>
                     <FiBriefcase />
                   </div>
                   Contact
                 </div>
               </a>
             </Link>
+            <button
+              onClick={handleThemeChange}
+              className='bg-dark-neutral dark:bg-primary-light bg-opacity-10 dark:bg-opacity-10 dark:hover:bg-opacity-20 hover:bg-opacity-30 p-2 rounded-full'
+            >
+              {theme === "light" ? (
+                <MdOutlineLightMode />
+              ) : (
+                <MdOutlineDarkMode />
+              )}
+            </button>
           </div>
         )}
       </nav>
       <AnimatePresence>
         {showHamburgerMenu && (
           <motion.div
-            className='h-screen bg-opacity-70 -sm flex flex-col top-16 w-full fixed overflow-hidden font-dm text-white bg-black z-50'
+            className='h-screen bg-opacity-20 dark:bg-opacity-70 -sm flex flex-col top-16 w-full fixed overflow-hidden font-dm text-dark-neutral dark:text-white bg-black z-50'
             initial={{ x: -400 }}
             animate={{ x: 0 }}
             exit={{ x: -768 }}
           >
             <Link href='/'>
               <a className='select-none pl-12 pt-4 pb-4 w-full overflow-x-hidden hover:bg-primary-light hover:bg-opacity-10 group'>
-                <div className='flex flex-row gap-4 items-center group-hover:text-primary-1'>
-                  <div className='text-primary-light group-hover:text-primary-1'>
+                <div className='flex flex-row gap-4 items-center group-hover:text-teal-700 dark:group-hover:text-primary-1'>
+                  <div className='text-gray-500 dark:text-primary-light group-hover:text-teal-700 dark:group-hover:text-primary-1'>
                     <FiBriefcase />
                   </div>
                   Home
@@ -126,8 +154,8 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
             </Link>
             <Link href='#projects'>
               <a className='select-none pl-12 pt-4 pb-4 w-full overflow-x-hidden hover:bg-primary-light hover:bg-opacity-10 group'>
-                <div className='flex flex-row gap-4 items-center group-hover:text-primary-1'>
-                  <div className='text-primary-light group-hover:text-primary-1'>
+                <div className='flex flex-row gap-4 items-center group-hover:text-teal-700 dark:group-hover:text-primary-1'>
+                  <div className='text-gray-500 dark:text-primary-light group-hover:text-teal-700 dark:group-hover:text-primary-1'>
                     <FiCode />
                   </div>
                   Projects
@@ -136,8 +164,8 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
             </Link>
             <Link href='#contact'>
               <a className='select-none pl-12 pt-4 pb-4 w-full overflow-x-hidden hover:bg-primary-light hover:bg-opacity-10 group'>
-                <div className='flex flex-row gap-4 items-center group-hover:text-primary-1'>
-                  <div className='text-primary-light group-hover:text-primary-1'>
+                <div className='flex flex-row gap-4 items-center group-hover:text-teal-700 dark:group-hover:text-primary-1'>
+                  <div className='text-gray-500 dark:text-primary-light group-hover:text-teal-700 dark:group-hover:text-primary-1'>
                     <FiBriefcase />
                   </div>
                   Contact

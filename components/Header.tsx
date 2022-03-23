@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { BiDownArrow } from "react-icons/bi";
 import { motion } from "framer-motion";
 import useWindowDimensions from "../hooks/useWindowDimensions";
@@ -29,18 +30,18 @@ export const Header: React.FC<HeaderProps> = ({}) => {
       <div className='flex flex-row items-center justify-center gap-8 lg:gap-16'>
         <div className='w-2/3 md:w-1/3 transition-all'>
           <h2
-            className='text-4xl lg:text-5xl font-dm font-bold text-primary-1 leading-normal select-text drop-shadow-lg'
+            className='text-4xl lg:text-5xl font-dm font-bold text-teal-700 dark:text-primary-1 leading-normal select-text drop-shadow-md dark:drop-shadow-lg'
             data-aos='fade-down'
             data-aos-easing='ease-in-out'
           >
             I&apos;m Kevin, a{" "}
-            <span className='font-dm_mono transition-all hover:text-primary-light'>
+            <span className='font-dm_mono transition-all dark:hover:text-primary-light'>
               {(diff / (1000 * 60 * 60 * 24 * 365)).toFixed(9)}
             </span>{" "}
             year-old developer.
           </h2>
           <p
-            className='text-primary-light font-dm_mono w-2/3 leading-relaxed mt-8 tracking-wide text-sm lg:text-base'
+            className='text-gray-600 drop-shadow-md dark:drop-shadow-none dark:text-primary-light font-dm_mono w-2/3 leading-relaxed mt-8 tracking-wide text-sm lg:text-base'
             data-aos='fade-down'
             data-aos-easing='ease-in-out'
             data-aos-delay='200'
@@ -52,9 +53,9 @@ export const Header: React.FC<HeaderProps> = ({}) => {
         </div>
 
         {width != null && width >= 768 ? (
-          <div className='h-auto w-auto font-dm_mono text-primary-light flex flex-col items-center text-tiny lg:text-xs xl:text-sm mb-28'>
+          <div className='h-auto w-auto font-dm_mono text-gray-600 dark:text-primary-light flex flex-col items-center text-tiny lg:text-xs xl:text-sm mb-28'>
             <div
-              className='h-full w-full sm:p-4 lg:p-8 flex flex-row lg:gap-4 xl:gap-4 bg-primary-light bg-opacity-5 hover:bg-opacity-10 -md border-2 border-opacity-10 rounded-xl shadow-xl border-primary-light transition-all'
+              className='h-full w-full sm:p-4 lg:p-8 flex flex-row lg:gap-4 xl:gap-4 bg-dark-neutral dark:bg-primary-light bg-opacity-5 dark:bg-opacity-5 hover:bg-opacity-0 dark:hover:bg-opacity-10 -md border-2 border-opacity-5 dark:border-opacity-10 rounded-xl shadow-2xl dark:shadow-xl border-dark-neutral dark:border-primary-light transition-all'
               data-aos='fade-down'
               data-aos-easing='ease-in-out'
               data-aos-delay='600'
@@ -90,7 +91,7 @@ export const Header: React.FC<HeaderProps> = ({}) => {
                 ))}
               </div>
 
-              <div className='drop-shadow-lg'>
+              <div className='drop-shadow-md'>
                 <p>import React from &quot;react&quot;;</p>
                 <br />
                 <p>interface TodoProps &#123;</p>
@@ -137,23 +138,22 @@ export const Header: React.FC<HeaderProps> = ({}) => {
           </div>
         ) : null}
       </div>
-      <a
-        className='absolute bottom-4 w-10 h-10 rounded-full border-2 border-primary-light drop-shadow-lg text-primary-light flex items-center justify-center transition-all opacity-25 hover:opacity-80'
-        href='#projects'
-      >
-        <motion.div
-          animate={{
-            y: [3, -3, 3],
-          }}
-          transition={{
-            duration: 2,
-            loop: Infinity,
-            ease: "easeInOut",
-          }}
-        >
-          <BiDownArrow />
-        </motion.div>
-      </a>
+      <Link href='#projects'>
+        <a className='absolute bottom-4 w-10 h-10 rounded-full border-2 border-primary-light drop-shadow-lg text-primary-light flex items-center justify-center transition-all opacity-25 hover:opacity-80'>
+          <motion.div
+            animate={{
+              y: [3, -3, 3],
+            }}
+            transition={{
+              duration: 2,
+              loop: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            <BiDownArrow />
+          </motion.div>
+        </a>
+      </Link>
     </div>
   );
 };

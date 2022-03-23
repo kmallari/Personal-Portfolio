@@ -12,7 +12,7 @@ interface FooterProps {}
 export const Footer: React.FC<FooterProps> = ({}) => {
   return (
     <>
-      <div className='h-auto w-full font-dm bg-black bg-opacity-100 text-white flex flex-row justify-around py-12 z-20 text-sm md:text-base'>
+      <footer className='h-auto w-full font-dm bg-black bg-opacity-100 text-white flex flex-row justify-around py-12 z-20 text-sm md:text-base'>
         <div className='flex flex-col gap-5 z-20'>
           <h1 className='md:text-xl font-bold'>Connect with me</h1>
           <div className='text-gray-400 flex flex-col gap-3'>
@@ -50,7 +50,7 @@ export const Footer: React.FC<FooterProps> = ({}) => {
             </span>
           </p>
         </div>
-      </div>
+      </footer>
     </>
   );
 };

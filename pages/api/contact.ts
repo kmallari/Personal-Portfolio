@@ -47,7 +47,7 @@ export default async function handler(
     to: req.body.email,
     subject: "Thank you for contacting me",
     text: "Thank you for contacting me. I will get back to you as soon as possible. Have a great day!",
-    html: "<p>Thank you for contacting me. I will get back to you as soon as possible. Have a great day!</p>",
+    html: "<div><p>Thank you for contacting me. I will get back to you as soon as possible.</p> Have a great day!<p>Sincerely,<br/ />Kevin Luis T. Mallari<br />kevin.mallari@gmail.com<br /><a href='https://www.linkedin.com/in/kevin-luis-mallari-a4364719a/'>Kevin Luis Mallari | LinkedIn</a></div>",
   };
 
   await new Promise((resolve, reject) => {

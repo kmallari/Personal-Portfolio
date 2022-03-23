@@ -28,7 +28,7 @@ export const HorizontalProjectContainer: React.FC<
 
   return (
     <motion.div
-      className='h-auto w-5/6 lg:w-full lg:h-1/2 p-8 flex flex-row object-contain gap-8 bg-primary-light bg-opacity-5 border-2 border-opacity-10 rounded-xl shadow-xl border-primary-light hover:bg-opacity-10 transition'
+      className='h-auto w-5/6 lg:w-full lg:h-1/2 p-8 flex flex-row object-contain gap-8 bg-primary-light bg-opacity-40 dark:bg-opacity-5 border-2 border-opacity-10 rounded-xl shadow-xl border-primary-light hover:bg-opacity-30 dark:hover:bg-opacity-10'
       whileHover={{
         scale: 1.025,
         transition: { duration: 0.1 },
@@ -46,11 +46,13 @@ export const HorizontalProjectContainer: React.FC<
       </div>
       <div className='flex flex-col w-full gap-8'>
         <div className='flex flex-col-reverse md:flex-row gap-4 justify-between text-3xl w-full'>
-          <h2 className='font-dm font-bold text-primary-1'>{title}</h2>
-          <div className='text-primary-light flex flex-row gap-4 items-center text-xl'>
+          <h2 className='font-dm font-bold text-teal-700 dark:text-primary-1'>
+            {title}
+          </h2>
+          <div className='text-dark-neutral dark:text-primary-light flex flex-row gap-4 items-center text-xl'>
             <Link href={github_link}>
               <a
-                className='hover:text-primary-1 cursor-pointer'
+                className='hover:text-gray-600 dark:hover:text-primary-1 cursor-pointer'
                 target={"_blank"}
               >
                 <IoLogoGithub />
@@ -59,7 +61,7 @@ export const HorizontalProjectContainer: React.FC<
             <span className='text-base cursor-default'>|</span>
             <Link href={live_link}>
               <a
-                className='hover:text-primary-1 cursor-pointer'
+                className='hover:text-gray-600 dark:hover:text-primary-1 cursor-pointer'
                 target={"_blank"}
               >
                 <IoMdLink />
@@ -67,10 +69,10 @@ export const HorizontalProjectContainer: React.FC<
             </Link>
           </div>
         </div>
-        <p className='text-primary-light transition-all leading-relaxed text-sm font-dm_mono -mt-4'>
+        <p className='text-gray-600 hover:text-gray-600 dark:text-primary-light transition-all leading-relaxed text-sm font-dm_mono -mt-4'>
           {description}
         </p>
-        <p className='text-primary-light hover:text-white transition-all leading-relaxed text-sm font-dm_mono -mt-4'>
+        <p className='text-gray-600 hover:text-gray-700 dark:text-primary-light dark:hover:text-white transition-all leading-relaxed text-sm font-dm_mono -mt-4'>
           <span className='font-bold text-primary-2'>Technologies Used:</span>
           <span className='opacity-50'> {technologies}</span>
         </p>

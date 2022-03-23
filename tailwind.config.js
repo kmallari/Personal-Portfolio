@@ -1,4 +1,5 @@
 module.exports = {
+  darkMode: "class",
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
@@ -11,11 +12,11 @@ module.exports = {
         dm: ["DM Sans", "sans serif"],
       },
       blur: {
-        fourXL: '128px',
+        fourXL: "128px",
       },
       backgroundImage: {
-        'noise': "url('https://grainy-gradients.vercel.app/noise.svg')",
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        noise: "url('https://grainy-gradients.vercel.app/noise.svg')",
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
       },
       colors: {
         "dark-neutral": "#0A0F0D",
@@ -25,10 +26,19 @@ module.exports = {
         "primary-2": "#EE4266",
       },
       fontSize: {
-        tiny: ['0.69rem', {
-          lineHeight: '0.75rem'
-        }]
-      }
+        tiny: [
+          "0.69rem",
+          {
+            lineHeight: "0.75rem",
+          },
+        ],
+      },
+      backgroundImage: {
+        "dark-grid":
+          "linear-gradient(to right, rgb(19, 19, 20) 1px, transparent 1px), linear-gradient(to bottom, rgb(19, 19, 20) 1px, transparent 1px);",
+        "light-grid":
+          "linear-gradient(to right, rgb(225, 225, 238) 1px, transparent 1px), linear-gradient(to bottom, rgb(225, 225, 238) 1px, transparent 1px);",
+      },
     },
   },
   plugins: [],

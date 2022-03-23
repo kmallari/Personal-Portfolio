@@ -83,16 +83,16 @@ export const ContactForm: React.FC<ContactFormProps> = ({}) => {
   };
 
   return (
-    <section id='contact' className='relative h-auto w-full'>
-      <div className='h-auto w-full bg-primary-light bg-opacity-5 border-t-2 border-primary-light border-opacity-10 flex flex-col md:flex-row items-center md:items-start justify-center text-primary-light font-dm gap-8 lg:gap-24 py-16 md:py-24 lg:py-32 shadow-2xl'>
+    <div id='contact' className='relative h-auto w-full'>
+      <div className='h-auto w-full bg-primary-light bg-opacity-30 dark:bg-primary-light dark:bg-opacity-5 border-t-2 border-primary-light border-opacity-10 flex flex-col md:flex-row items-center md:items-start justify-center text-gray-600 dark:text-primary-light font-dm gap-8 lg:gap-24 py-16 md:py-24 lg:py-32 drop-shadow shadow-inner dark:shadow-2xl'>
         <div className='h-auto flex flex-col gap-4'>
           <h2 className='text-3xl md:text-4xl lg:text-5xl md:text-left text-center font-dm font-bold text-primary-2 leading-normal select-text drop-shadow-lg z-10'>
             Contact me
           </h2>
           <p className='text-sm lg:text-base md:text-left text-center z-10'>
-            Have a question or want to contact me?
+            Have a question or want to work together?
             <br />
-            Fill out to form to reach out!
+            Fill out this form to reach out!
           </p>
         </div>
         <form
@@ -169,13 +169,13 @@ export const ContactForm: React.FC<ContactFormProps> = ({}) => {
             )}
           </div>
           <input
-            className='w-48 cursor-pointer bg-primary-1 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded transition-all self-end'
+            className='w-48 cursor-pointer bg-primary-1 hover:bg-teal-600 text-white font-bold py-2 px-4 rounded transition-all self-end'
             type='submit'
             value='Send Message'
           />
         </form>
       </div>
       <Notification notification={notification} />
-    </section>
+    </div>
   );
 };

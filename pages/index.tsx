@@ -10,7 +10,8 @@ import { ContactForm } from "../components/ContactForm";
 import { Footer } from "../components/Footer";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
+import { useTheme } from "next-themes";
 
 const Home: NextPage = () => {
   useEffect(() => {
@@ -18,27 +19,45 @@ const Home: NextPage = () => {
     AOS.refresh();
   }, []);
 
-  const listInnerRef = useRef();
+  const { systemTheme, theme, setTheme } = useTheme();
 
-  const onScroll = () => {
-    if (listInnerRef.current) {
-      const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current;
-      if (scrollTop + clientHeight === scrollHeight) {
-        // TO SOMETHING HERE
-        console.log("Reached bottom");
-      }
+  const bodyStyle: React.CSSProperties = {
+    // backgroundColor: "rgb(13, 13, 14)",
+    backgroundSize: "40px 40px",
+    // backgroundImage:
+    //   theme === "dark"
+    //     ? "linear-gradient(\n      to right,\n      rgb(19, 19, 20) 1px,\n      transparent 1px\n    ),\n    linear-gradient(to bottom, rgb(19, 19, 20) 1px, transparent 1px)"
+    //     : "linear-gradient(\n      to right,\n      rgb(225, 225, 238) 1px,\n      transparent 1px\n    ),\n    linear-gradient(to bottom, rgb(225, 225, 238) 1px, transparent 1px)",
+    backgroundAttachment: "fixed",
+    scrollBehavior: "smooth",
+    overflowX: "hidden",
+  };
+
+  const handleThemeChange = (): void => {
+    console.log(theme);
+    if (theme === "light") {
+      setTheme("dark");
+    } else {
+      setTheme("light");
     }
   };
 
   return (
-    <>
-      <BlurredBalls />
+    <div
+      style={bodyStyle}
+      className='bg-slate-200 dark:bg-dark-neutral bg-light-grid dark:bg-dark-grid'
+    >
+      <Head>
+        <title>Kevin Mallari | Portfolio</title>
+        <meta name='keywords' content='personal-portfolio' />
+      </Head>
+      <BlurredBalls theme={theme} />
       <Header />
-      <Projects />
+      <Projects theme={theme} />
       <ContactForm />
       <Footer />
-      <Navbar />
-    </>
+      <Navbar theme={theme} handleThemeChange={handleThemeChange} />
+    </div>
   );
 };
 
