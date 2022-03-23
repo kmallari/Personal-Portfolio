@@ -56,11 +56,17 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
       <nav
         className={`flex flex-row justify-between h-16 w-full items-center pl-16 pr-16 lg:pl-32 lg:pr-32 font-dm fixed top-0 text-white transition-all backdrop-blur-sm z-50`}
       >
-        <div className='flex flex-row gap-6 items-center'>
-          {/* 904 x 1100 */}
-          <Image alt='logo' src='/logo.png' width={25.83} height={31.42} />
-          <h1 className='text-sm tracking-widest select-none'>KEVIN MALLARI</h1>
-        </div>
+        <Link href='/'>
+          <a>
+            <div className='flex flex-row gap-6 items-center'>
+              {/* 904 x 1100 */}
+              <Image alt='logo' src='/logo.png' width={25.83} height={31.42} />
+              <h1 className='text-sm tracking-widest select-none'>
+                KEVIN MALLARI
+              </h1>
+            </div>
+          </a>
+        </Link>
         {isHamburger ? (
           <div onClick={handleHamburgerClick} className='cursor-pointer'>
             <RiMenuUnfoldLine style={{ color: "#C4CBCA" }} />
@@ -103,7 +109,7 @@ export const Navbar: React.FC<NavbarProps> = ({}) => {
       <AnimatePresence>
         {showHamburgerMenu && (
           <motion.div
-            className='h-screen bg-opacity-90 -sm flex flex-col top-16 w-full fixed overflow-hidden font-dm text-white bg-black'
+            className='h-screen bg-opacity-70 -sm flex flex-col top-16 w-full fixed overflow-hidden font-dm text-white bg-black z-50'
             initial={{ x: -400 }}
             animate={{ x: 0 }}
             exit={{ x: -768 }}

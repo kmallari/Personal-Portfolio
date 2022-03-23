@@ -10,13 +10,25 @@ import { ContactForm } from "../components/ContactForm";
 import { Footer } from "../components/Footer";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 const Home: NextPage = () => {
   useEffect(() => {
     AOS.init();
     AOS.refresh();
   }, []);
+
+  const listInnerRef = useRef();
+
+  const onScroll = () => {
+    if (listInnerRef.current) {
+      const { scrollTop, scrollHeight, clientHeight } = listInnerRef.current;
+      if (scrollTop + clientHeight === scrollHeight) {
+        // TO SOMETHING HERE
+        console.log("Reached bottom");
+      }
+    }
+  };
 
   return (
     <>

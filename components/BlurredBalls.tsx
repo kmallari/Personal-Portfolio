@@ -1,85 +1,112 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-// import useWindowDimensions from "../hooks/useWindowDimensions";
+import useWindowDimensions from "../hooks/useWindowDimensions";
 
 const ORIG_SPEED_X = 15;
 const ORIG_SPEED_Y = 15;
 export const BlurredBalls = () => {
-  const SVG_WIDTH = 1000;
+  const { height, width } = useWindowDimensions();
 
-  const [x, setX] = useState(0);
-  const [speedX, setSpeedX] = useState(ORIG_SPEED_X);
-  const [y, setY] = useState(0);
-  const [speedY, setSpeedY] = useState(ORIG_SPEED_Y);
+  // generate 10 random x and y positions within the viewport with a maximum
+  // difference of 100px between each position and make the last
+  // position out of the viewport
+  const generatePos = (position: null | number, size: number) => {
+    if (position != null) {
+      const positions: number[] = [];
+      for (let i = 0; i < 10; i++) {
+        {
+          const pos = Math.floor(Math.random() * (position - 100)) + 100;
+          positions.push(pos);
+        }
+      }
+      positions.push(position);
+      positions.unshift(-size);
+      return positions;
+    }
+    return [-1];
+  };
 
-  // I think this needs optimizing
+  // generate numbers 0 to 360 within 10 steps
+  const generateRotations = () => {
+    const rotations: number[] = [];
+    for (let i = 0; i < 10; i++) {
+      rotations.push(Math.floor(Math.random() * 360));
+    }
+    return rotations;
+  };
+
+  const [xPositions1, setXPositions1] = useState(generatePos(width, 400));
+  const [yPositions1, setYPositions1] = useState(generatePos(height, 400));
+  const [rotations1, setRotations1] = useState(generateRotations());
+  const [xPositions2, setXPositions2] = useState(generatePos(width, 400));
+  const [yPositions2, setYPositions2] = useState(generatePos(height, 400));
+  const [rotations2, setRotations2] = useState(generateRotations());
+  const [xPositions3, setXPositions3] = useState(generatePos(width, 400));
+  const [yPositions3, setYPositions3] = useState(generatePos(height, 400));
+  const [rotations3, setRotations3] = useState(generateRotations());
+
+  const generateNewPositions = () => {
+    setXPositions1(generatePos(width, 400));
+    setYPositions1(generatePos(height, 400));
+    setRotations1(generateRotations());
+    setXPositions2(generatePos(width, 400));
+    setYPositions2(generatePos(height, 400));
+    setRotations2(generateRotations());
+    setXPositions3(generatePos(width, 400));
+    setYPositions3(generatePos(height, 400));
+    setRotations3(generateRotations());
+  };
+
+  useEffect(() => {
+    generateNewPositions();
+  }, [width, height]);
 
   return (
     <div className='p-0 w-full h-screen fixed overflow-hidden'>
-      <div className='absolute right-0 opacity-20'>
+      <div className='absolute top-0 left-0 opacity-40'>
         <motion.div
-          animate={{ x: x, y: y }}
+          animate={{ x: xPositions1, y: yPositions1, rotate: rotations1 }}
           transition={{
-            ease: "linear",
-            // duration: 0.1,
-            // repeat: Infinity
+            ease: "easeInOut",
+            duration: 100,
+            // repeat: Infinity,
           }}
           onAnimationComplete={() => {
-            // console.log(y, window.innerHeight);
-            setX(x + speedX);
-            setY(y + speedY);
-
-            if (window.innerWidth <= 800) {
-              // right
-              if (x >= window.innerWidth * 3 - SVG_WIDTH) {
-                setSpeedX(-ORIG_SPEED_X);
-                // console.log("test");
-              }
-
-              // left
-              if (x <= -window.innerWidth * 2 + SVG_WIDTH) {
-                // console.log("test2");
-                setSpeedX(ORIG_SPEED_X);
-              }
-
-              // down
-              if (y >= window.innerHeight / 2) {
-                setSpeedY(-ORIG_SPEED_Y);
-              }
-
-              // top
-              if (y <= -window.innerHeight / 3) {
-                console.log("");
-                setSpeedY(ORIG_SPEED_Y);
-              }
-            } else {
-              // right
-              if (x >= window.innerWidth - SVG_WIDTH) {
-                setSpeedX(-ORIG_SPEED_X);
-                // console.log("test");
-              }
-
-              // left
-              if (x <= -window.innerWidth * 1.15 + SVG_WIDTH) {
-                // console.log("test2");
-                setSpeedX(ORIG_SPEED_X);
-              }
-
-              // down
-              if (y >= window.innerHeight / 2) {
-                setSpeedY(-ORIG_SPEED_Y);
-              }
-
-              // top
-              if (y <= -window.innerHeight / 3) {
-                console.log("");
-                setSpeedY(ORIG_SPEED_Y);
-              }
-            }
+            generateNewPositions();
           }}
         >
-          <Image alt='' src='/ball-1.png' width={1000} height={1000} />
+          <Image alt='' src='/ball-4.png' width={500} height={500} />
+        </motion.div>
+      </div>
+      <div className='absolute top-0 left-0 opacity-20'>
+        <motion.div
+          animate={{ x: xPositions2, y: yPositions2, rotate: rotations2 }}
+          transition={{
+            ease: "easeInOut",
+            duration: 100,
+            // repeat: Infinity,
+          }}
+          onAnimationComplete={() => {
+            generateNewPositions();
+          }}
+        >
+          <Image alt='' src='/ball-5.png' width={300} height={300} />
+        </motion.div>
+      </div>
+      <div className='absolute top-0 left-0 opacity-20'>
+        <motion.div
+          animate={{ x: xPositions3, y: yPositions3, rotate: rotations3 }}
+          transition={{
+            ease: "easeInOut",
+            duration: 100,
+            // repeat: Infinity,
+          }}
+          onAnimationComplete={() => {
+            generateNewPositions();
+          }}
+        >
+          <Image alt='' src='/ball-1.png' width={400} height={400} />
         </motion.div>
       </div>
     </div>

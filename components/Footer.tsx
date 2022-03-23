@@ -12,9 +12,9 @@ interface FooterProps {}
 export const Footer: React.FC<FooterProps> = ({}) => {
   return (
     <>
-      <div className='h-auto w-full font-dm bg-black bg-opacity-100 text-white flex flex-row justify-around py-12 z-20'>
+      <div className='h-auto w-full font-dm bg-black bg-opacity-100 text-white flex flex-row justify-around py-12 z-20 text-sm md:text-base'>
         <div className='flex flex-col gap-5 z-20'>
-          <h1 className='text-xl font-bold'>Connect with me</h1>
+          <h1 className='md:text-xl font-bold'>Connect with me</h1>
           <div className='text-gray-400 flex flex-col gap-3'>
             <Link href='https://www.linkedin.com/in/kevin-luis-mallari-a4364719a/'>
               <a className='flex flex-row items-center gap-2 hover:text-white transition'>
@@ -45,7 +45,7 @@ export const Footer: React.FC<FooterProps> = ({}) => {
         <div className='z-30'>
           <p className='text-right'>
             Made with ♥ by{" "}
-            <span className='underline underline-offset-4 text-primary-1 hover:text-primary-2 transition-all z-30 cursor-default'>
+            <span className='underline underline-offset-4 text-primary-1 hover:text-primary-2 transition-all z-30 cursor-default tracking-wide'>
               Kevin Mallari
             </span>
           </p>

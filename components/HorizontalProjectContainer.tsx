@@ -45,7 +45,7 @@ export const HorizontalProjectContainer: React.FC<
         />
       </div>
       <div className='flex flex-col w-full gap-8'>
-        <div className='flex flex-row items-center justify-between text-3xl w-full'>
+        <div className='flex flex-col-reverse md:flex-row gap-4 justify-between text-3xl w-full'>
           <h2 className='font-dm font-bold text-primary-1'>{title}</h2>
           <div className='text-primary-light flex flex-row gap-4 items-center text-xl'>
             <Link href={github_link}>

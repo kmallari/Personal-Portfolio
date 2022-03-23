@@ -25,7 +25,7 @@ export const Projects: React.FC<ProjectsProps> = ({}) => {
   }, [width]);
 
   return (
-    <div
+    <section
       id='projects'
       className='w-full h-auto flex self-start items-center py-32'
     >
@@ -130,6 +130,6 @@ export const Projects: React.FC<ProjectsProps> = ({}) => {
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
