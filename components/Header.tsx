@@ -29,7 +29,7 @@ export const Header: React.FC<HeaderProps> = ({}) => {
   return (
     <section
       id='home'
-      className='h-screen min-h-full relative flex flex-col items-center justify-center cursor-default'
+      className='h-auto min-h-full relative flex flex-col items-center justify-center cursor-default mt-32 my-16'
     >
       <div className='flex flex-row items-center justify-center gap-8 lg:gap-16'>
         <div className='w-2/3 md:w-1/3'>
@@ -64,7 +64,7 @@ export const Header: React.FC<HeaderProps> = ({}) => {
             <h3 className='uppercase text-primary-2 text-sm font-dm_mono font-bold whitespace-nowrap'>
               I HAVE EXPERIENCE IN:
             </h3>
-            <div className='flex w-5/6 flex-row gap-8 flex-wrap items-center'>
+            <div className='flex w-5/6 flex-row gap-4 lg:gap-8 flex-wrap items-center'>
               <Image
                 className='brightness-50 hover:brightness-0 dark:brightness-100 dark:hover:brightness-200'
                 src='/react.png'
