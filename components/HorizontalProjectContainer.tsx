@@ -72,7 +72,7 @@ export const HorizontalProjectContainer: React.FC<
         <p className='text-gray-600 hover:text-gray-600 dark:text-primary-light leading-relaxed text-sm font-dm_mono -mt-4'>
           {description}
         </p>
-        <p className='text-gray-600 hover:text-gray-700 dark:text-primary-light dark:hover:text-white leading-relaxed text-sm font-dm_mono -mt-4'>
+        <p className='text-gray-600 hover:text-gray-900 dark:text-primary-light dark:hover:text-white leading-relaxed text-sm font-dm_mono -mt-4'>
           <span className='font-bold text-primary-2'>Technologies Used:</span>
           <span className='opacity-50'> {technologies}</span>
         </p>

@@ -228,48 +228,58 @@ export const Header: React.FC<HeaderProps> = ({}) => {
                 ))}
               </div>
 
-              <div className='drop-shadow-md'>
-                <p>import React from &quot;react&quot;;</p>
+              <div className='drop-shadow'>
+                <p className='drop-shadow-md'>
+                  import React from &quot;react&quot;;
+                </p>
                 <br />
-                <p>interface TodoProps &#123;</p>
-                <p>&nbsp;&nbsp;todo: [];</p>
-                <p>&#125;</p>
+                <p className='drop-shadow-md'>interface TodoProps &#123;</p>
+                <p className='drop-shadow-md'>&nbsp;&nbsp;todo: [];</p>
+                <p className='drop-shadow-md'>&#125;</p>
                 <br />
-                <p>
+                <p className='drop-shadow-md'>
                   const Todo: React.FC &lt;TodoProps&gt; = &#40;&#123; todo
                   &#125;&#41; =&gt; &#123;
                 </p>
-                <p>&nbsp;&nbsp;return &#40;</p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;&lt;&gt;</p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123;todo.map&#40;</p>
-                <p>
+                <p className='drop-shadow-md'>&nbsp;&nbsp;return &#40;</p>
+                <p className='drop-shadow-md'>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;&gt;
+                </p>
+                <p className='drop-shadow-md'>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#123;todo.map&#40;
+                </p>
+                <p className='drop-shadow-md'>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#40;todo:
                   &#123; title: string; description: string &#125;,
                 </p>
-                <p>
+                <p className='drop-shadow-md'>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;index:
                   number&#41; =&gt; &#40;
                 </p>
-                <p>
+                <p className='drop-shadow-md'>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div
                   key= &#123;index&#125;&gt;
                 </p>
-                <p>
+                <p className='drop-shadow-md'>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;&#123;todo.title&#125;&lt;/p&gt;
                 </p>
-                <p>
+                <p className='drop-shadow-md'>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;&#123;todo.description&#125;&lt;/p&gt;
                 </p>
-                <p>
+                <p className='drop-shadow-md'>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
                 </p>
-                <p>
+                <p className='drop-shadow-md'>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#41;
                 </p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#41;&#125;</p>
-                <p>&nbsp;&nbsp;&nbsp;&nbsp;&lt;&#47;&gt;</p>
-                <p>&nbsp;&nbsp;&#41;</p>
-                <p>&#125;</p>
+                <p className='drop-shadow-md'>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#41;&#125;
+                </p>
+                <p className='drop-shadow-md'>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&lt;&#47;&gt;
+                </p>
+                <p className='drop-shadow-md'>&nbsp;&nbsp;&#41;</p>
+                <p className='drop-shadow-md'>&#125;</p>
               </div>
             </div>
           </div>

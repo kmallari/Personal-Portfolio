@@ -55,7 +55,11 @@ const Home: NextPage = () => {
       <Projects theme={theme} />
       <ContactForm />
       <Footer />
-      <Navbar theme={theme} handleThemeChange={handleThemeChange} />
+      <Navbar
+        systemTheme={systemTheme}
+        theme={theme}
+        handleThemeChange={handleThemeChange}
+      />
     </div>
   );
 };

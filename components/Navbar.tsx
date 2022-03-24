@@ -10,9 +10,14 @@ import { motion, useCycle, AnimatePresence } from "framer-motion";
 interface NavbarProps {
   handleThemeChange: () => void;
   theme: string;
+  systemTheme: string;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ handleThemeChange, theme }) => {
+export const Navbar: React.FC<NavbarProps> = ({
+  handleThemeChange,
+  theme,
+  systemTheme,
+}) => {
   const [isHamburger, setIsHamburger] = useState<boolean>(false);
   const [scroll, setScroll] = useState<boolean>(false);
   const [showHamburgerMenu, onShowHamburgerMenu] = useCycle<boolean>(
@@ -48,7 +53,7 @@ export const Navbar: React.FC<NavbarProps> = ({ handleThemeChange, theme }) => {
 
   useEffect(() => {
     document.addEventListener("scroll", () => {
-      const scrollCheck = window.scrollY < 100;
+      const scrollCheck = window.scrollY < 20;
       setScroll(!scrollCheck);
     });
   });
@@ -85,7 +90,16 @@ export const Navbar: React.FC<NavbarProps> = ({ handleThemeChange, theme }) => {
             </button>
             <div onClick={handleHamburgerClick} className='cursor-pointer'>
               <RiMenuUnfoldLine
-                style={{ color: theme === "dark" ? "#C4CBCA" : "#0A0F0D" }}
+                style={{
+                  color:
+                    theme === "system"
+                      ? systemTheme === "dark"
+                        ? "#C4CBCA"
+                        : "#0A0F0D"
+                      : theme === "light"
+                      ? "#0A0F0D"
+                      : "#C4CBCA",
+                }}
               />
             </div>
           </div>
@@ -93,8 +107,8 @@ export const Navbar: React.FC<NavbarProps> = ({ handleThemeChange, theme }) => {
           <div className='flex flex-row gap-14 h-full items-center'>
             <Link href='/'>
               <a className='flex justify-center items-center h-full select-none group'>
-                <div className='flex flex-row gap-2 items-center group-hover:text-teal-700 dark:group-hover:text-primary-1'>
-                  <div className='text-gray-500 dark:text-primary-light group-hover:text-teal-700 dark:group-hover:text-primary-1'>
+                <div className='flex flex-row gap-2 items-center md:group-hover:text-teal-700 dark:md:group-hover:text-primary-1'>
+                  <div className='text-gray-500 dark:text-primary-light md:group-hover:text-teal-700 dark:md:group-hover:text-primary-1'>
                     <FiHome />
                   </div>
                   Home
@@ -103,8 +117,8 @@ export const Navbar: React.FC<NavbarProps> = ({ handleThemeChange, theme }) => {
             </Link>
             <Link href='#projects'>
               <a className='flex justify-center items-center h-full select-none group'>
-                <div className='flex flex-row gap-2 items-center group-hover:text-teal-700 dark:group-hover:text-primary-1'>
-                  <div className='text-gray-500 dark:text-primary-light group-hover:text-teal-700 dark:group-hover:text-primary-1'>
+                <div className='flex flex-row gap-2 items-center md:group-hover:text-teal-700 dark:md:group-hover:text-primary-1'>
+                  <div className='text-gray-500 dark:text-primary-light md:group-hover:text-teal-700 dark:md:group-hover:text-primary-1'>
                     <FiCode />
                   </div>
                   Projects
@@ -113,8 +127,8 @@ export const Navbar: React.FC<NavbarProps> = ({ handleThemeChange, theme }) => {
             </Link>
             <Link href='#contact'>
               <a className='flex justify-center items-center h-full select-none group'>
-                <div className='flex flex-row gap-2 items-center group-hover:text-teal-700 dark:group-hover:text-primary-1'>
-                  <div className='text-gray-500 dark:text-primary-light group-hover:text-teal-700 dark:group-hover:text-primary-1'>
+                <div className='flex flex-row gap-2 items-center md:group-hover:text-teal-700 dark:md:group-hover:text-primary-1'>
+                  <div className='text-gray-500 dark:text-primary-light md:group-hover:text-teal-700 dark:md:group-hover:text-primary-1'>
                     <FiBriefcase />
                   </div>
                   Contact
@@ -123,7 +137,7 @@ export const Navbar: React.FC<NavbarProps> = ({ handleThemeChange, theme }) => {
             </Link>
             <button
               onClick={handleThemeChange}
-              className='bg-dark-neutral dark:bg-primary-light bg-opacity-10 dark:bg-opacity-10 dark:hover:bg-opacity-20 hover:bg-opacity-30 p-2 rounded-full'
+              className='bg-dark-neutral dark:bg-primary-light bg-opacity-10 dark:bg-opacity-10 dark:hover:bg-opacity-20 hover:bg-opacity-20 p-2 rounded-full'
             >
               {theme === "light" ? (
                 <MdOutlineLightMode />
@@ -137,15 +151,15 @@ export const Navbar: React.FC<NavbarProps> = ({ handleThemeChange, theme }) => {
       <AnimatePresence>
         {showHamburgerMenu && (
           <motion.div
-            className='h-screen bg-opacity-10 dark:bg-opacity-70 -sm flex flex-col top-16 w-full fixed overflow-hidden font-dm text-dark-neutral dark:text-white bg-black z-50 backdrop-blur-sm'
+            className='h-screen bg-opacity-10 dark:bg-opacity-50 -sm flex flex-col top-16 w-full fixed overflow-hidden font-dm text-dark-neutral dark:text-white bg-dark-neutral z-50 backdrop-blur-sm'
             initial={{ x: -400 }}
             animate={{ x: 0 }}
             exit={{ x: -768 }}
           >
             <Link href='/'>
-              <a className='select-none pl-12 pt-4 pb-4 w-full overflow-x-hidden hover:bg-primary-light hover:bg-opacity-10 group'>
-                <div className='flex flex-row gap-4 items-center group-hover:text-teal-700 dark:group-hover:text-primary-1'>
-                  <div className='text-gray-500 dark:text-primary-light group-hover:text-teal-700 dark:group-hover:text-primary-1'>
+              <a className='select-none pl-12 pt-4 pb-4 w-full overflow-x-hidden md:hover:bg-primary-light hover:bg-opacity-10 group'>
+                <div className='flex flex-row gap-4 items-center md:group-hover:text-teal-700 dark:md:group-hover:text-primary-1'>
+                  <div className='text-gray-500 dark:text-primary-light md:group-hover:text-teal-700 dark:md:group-hover:text-primary-1'>
                     <FiBriefcase />
                   </div>
                   Home
@@ -153,9 +167,9 @@ export const Navbar: React.FC<NavbarProps> = ({ handleThemeChange, theme }) => {
               </a>
             </Link>
             <Link href='#projects'>
-              <a className='select-none pl-12 pt-4 pb-4 w-full overflow-x-hidden hover:bg-primary-light hover:bg-opacity-10 group'>
-                <div className='flex flex-row gap-4 items-center group-hover:text-teal-700 dark:group-hover:text-primary-1'>
-                  <div className='text-gray-500 dark:text-primary-light group-hover:text-teal-700 dark:group-hover:text-primary-1'>
+              <a className='select-none pl-12 pt-4 pb-4 w-full overflow-x-hidden md:hover:bg-primary-light hover:bg-opacity-10 group'>
+                <div className='flex flex-row gap-4 items-center md:group-hover:text-teal-700 dark:md:group-hover:text-primary-1'>
+                  <div className='text-gray-500 dark:text-primary-light md:group-hover:text-teal-700 dark:md:group-hover:text-primary-1'>
                     <FiCode />
                   </div>
                   Projects
@@ -163,9 +177,9 @@ export const Navbar: React.FC<NavbarProps> = ({ handleThemeChange, theme }) => {
               </a>
             </Link>
             <Link href='#contact'>
-              <a className='select-none pl-12 pt-4 pb-4 w-full overflow-x-hidden hover:bg-primary-light hover:bg-opacity-10 group'>
-                <div className='flex flex-row gap-4 items-center group-hover:text-teal-700 dark:group-hover:text-primary-1'>
-                  <div className='text-gray-500 dark:text-primary-light group-hover:text-teal-700 dark:group-hover:text-primary-1'>
+              <a className='select-none pl-12 pt-4 pb-4 w-full overflow-x-hidden md:hover:bg-primary-light hover:bg-opacity-10 group'>
+                <div className='flex flex-row gap-4 items-center md:group-hover:text-teal-700 dark:md:group-hover:text-primary-1'>
+                  <div className='text-gray-500 dark:text-primary-light md:group-hover:text-teal-700 dark:md:group-hover:text-primary-1'>
                     <FiBriefcase />
                   </div>
                   Contact

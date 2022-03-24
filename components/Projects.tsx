@@ -78,15 +78,15 @@ export const Projects: React.FC<ProjectsProps> = ({ theme }) => {
                 </Link>
               </div>
             </div>
-            <p className='text-gray-600 dark:text-primary-light transition-all leading-relaxed text-sm font-dm_mono -mt-4'>
+            <p className='text-gray-600 dark:text-primary-light leading-relaxed text-sm font-dm_mono -mt-4'>
               You&apos;re looking at it! This is where I showcase the personal
               projects that I&apos;m especially pleased with.
             </p>
-            <p className='text-gray-600 dark:text-primary-light transition-all leading-relaxed text-base font-dm_mono -mt-4'>
+            <p className='text-gray-600 dark:text-primary-light leading-relaxed text-sm font-dm_mono -mt-4'>
               I&apos;m proud of the outcome of the website, especially when it
               comes to the aesthetics.
             </p>
-            <p className='text-gray-600 hover:text-gray-700 dark:text-primary-light dark:hover:text-white transition-all leading-relaxed text-sm font-dm_mono -mt-4'>
+            <p className='text-gray-600 hover:text-gray-900 dark:text-primary-light dark:hover:text-white  leading-relaxed text-sm font-dm_mono -mt-4'>
               <span className='font-bold text-primary-2'>
                 Technologies Used:
               </span>
