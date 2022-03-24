@@ -55,7 +55,12 @@ export const Header: React.FC<HeaderProps> = ({}) => {
             software development and cloud computing.
           </p>
 
-          <div className='mx-auto lg:mt-12 pt-8 flex flex-col gap-8 items-start'>
+          <div
+            className='mx-auto lg:mt-12 pt-8 flex flex-col gap-8 items-start'
+            data-aos='fade-down'
+            data-aos-easing='ease-in-out'
+            data-aos-delay='400'
+          >
             <h3 className='uppercase text-primary-2 text-sm font-dm_mono font-bold whitespace-nowrap'>
               I HAVE EXPERIENCE IN:
             </h3>
