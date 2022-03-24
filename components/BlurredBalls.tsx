@@ -112,7 +112,7 @@ export const BlurredBalls: React.FC<BlurredBallsProps> = ({ theme }) => {
         >
           <Image
             alt=''
-            src={theme === "light" ? "/ball-.png" : "/ball-1.png"}
+            src={theme === "light" ? "/ball-3.png" : "/ball-1.png"}
             width={400}
             height={400}
           />

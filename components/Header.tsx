@@ -22,20 +22,24 @@ export const Header: React.FC<HeaderProps> = ({}) => {
     setDiff(now.getTime() - bday.getTime());
   }, 40);
 
+  const heightToThirty = (height: number) => {
+    return 22 / height;
+  };
+
   return (
-    <div
+    <section
       id='home'
-      className='h-screen relative flex flex-col items-center justify-center cursor-default'
+      className='h-screen min-h-full relative flex flex-col items-center justify-center cursor-default'
     >
       <div className='flex flex-row items-center justify-center gap-8 lg:gap-16'>
-        <div className='w-2/3 md:w-1/3 transition-all'>
+        <div className='w-2/3 md:w-1/3'>
           <h2
             className='text-4xl lg:text-5xl font-dm font-bold text-teal-700 dark:text-primary-1 leading-normal select-text drop-shadow-md dark:drop-shadow-lg'
             data-aos='fade-down'
             data-aos-easing='ease-in-out'
           >
             I&apos;m Kevin, a{" "}
-            <span className='font-dm_mono transition-all dark:hover:text-primary-light'>
+            <span className='font-dm_mono hover:text-primary-2 dark:hover:text-primary-light'>
               {(diff / (1000 * 60 * 60 * 24 * 365)).toFixed(9)}
             </span>{" "}
             year-old developer.
@@ -50,6 +54,134 @@ export const Header: React.FC<HeaderProps> = ({}) => {
             from Ateneo de Manila University who is interested in the field of
             software development and cloud computing.
           </p>
+
+          <div className='mx-auto lg:mt-12 pt-8 flex flex-col gap-8 items-start'>
+            <h3 className='uppercase text-primary-2 text-sm font-dm_mono font-bold whitespace-nowrap'>
+              I HAVE EXPERIENCE IN:
+            </h3>
+            <div className='flex w-5/6 flex-row gap-8 flex-wrap items-center'>
+              <Image
+                className='brightness-50 hover:brightness-0 dark:brightness-100 dark:hover:brightness-200'
+                src='/react.png'
+                width={
+                  width != null && width > 1200
+                    ? 761 * heightToThirty(213)
+                    : (761 * heightToThirty(213)) / 1.3
+                }
+                height={
+                  width != null && width > 1200
+                    ? 213 * heightToThirty(213)
+                    : (213 * heightToThirty(213)) / 1.3
+                }
+                alt='react-logo'
+              />
+              <Image
+                className='brightness-50 hover:brightness-0 dark:brightness-100 dark:hover:brightness-200'
+                src='/next.png'
+                width={
+                  width != null && width > 1200
+                    ? 800 * heightToThirty(479)
+                    : (800 * heightToThirty(479)) / 1.3
+                }
+                height={
+                  width != null && width > 1200
+                    ? 479 * heightToThirty(479)
+                    : (479 * heightToThirty(479)) / 1.3
+                }
+                alt='nextjs-logo'
+              />
+              <Image
+                className='brightness-50 hover:brightness-0 dark:brightness-100 dark:hover:brightness-200'
+                src='/typescript.png'
+                width={
+                  width != null && width > 1200
+                    ? 1024 * heightToThirty(213)
+                    : (1024 * heightToThirty(213)) / 1.3
+                }
+                height={
+                  width != null && width > 1200
+                    ? 213 * heightToThirty(213)
+                    : (213 * heightToThirty(213)) / 1.3
+                }
+                alt='ts-logo'
+              />
+              <Image
+                className='brightness-50 hover:brightness-0 dark:brightness-100 dark:hover:brightness-200'
+                src='/html_css_js.png'
+                width={
+                  width != null && width > 1200
+                    ? 2108 * heightToThirty(1000)
+                    : (2108 * heightToThirty(1000)) / 1.3
+                }
+                height={
+                  width != null && width > 1200
+                    ? 1000 * heightToThirty(1000)
+                    : (1000 * heightToThirty(1000)) / 1.3
+                }
+                alt='html_css_js-logo'
+              />
+              <Image
+                className='brightness-50 hover:brightness-0 dark:brightness-100 dark:hover:brightness-200'
+                src='/tailwind.png'
+                width={
+                  width != null && width > 1200
+                    ? 863 * heightToThirty(107)
+                    : (863 * heightToThirty(107)) / 1.3
+                }
+                height={
+                  width != null && width > 1200
+                    ? 107 * heightToThirty(107)
+                    : (107 * heightToThirty(107)) / 1.3
+                }
+                alt='tailwindcss-logo'
+              />
+              <Image
+                className='brightness-50 hover:brightness-0 dark:brightness-100 dark:hover:brightness-200'
+                src='/aws.png'
+                width={
+                  width != null && width > 1200
+                    ? 1280 * heightToThirty(718)
+                    : (1280 * heightToThirty(718)) / 1.3
+                }
+                height={
+                  width != null && width > 1200
+                    ? 718 * heightToThirty(718)
+                    : (718 * heightToThirty(718)) / 1.3
+                }
+                alt='tailwindcss-logo'
+              />
+              <Image
+                className='brightness-50 hover:brightness-0 dark:brightness-100 dark:hover:brightness-200'
+                src='/postgres.png'
+                width={
+                  width != null && width > 1200
+                    ? 3749 * heightToThirty(560)
+                    : (3749 * heightToThirty(560)) / 1.3
+                }
+                height={
+                  width != null && width > 1200
+                    ? 560 * heightToThirty(560)
+                    : (560 * heightToThirty(560)) / 1.3
+                }
+                alt='tailwindcss-logo'
+              />
+              <Image
+                className='brightness-50 hover:brightness-0 dark:brightness-100 dark:hover:brightness-200'
+                src='/python.png'
+                width={
+                  width != null && width > 1200
+                    ? 1200 * heightToThirty(293)
+                    : (1200 * heightToThirty(293)) / 1.3
+                }
+                height={
+                  width != null && width > 1200
+                    ? 293 * heightToThirty(293)
+                    : (293 * heightToThirty(293)) / 1.3
+                }
+                alt='tailwindcss-logo'
+              />
+            </div>
+          </div>
         </div>
 
         {width != null && width >= 768 ? (
@@ -138,22 +270,6 @@ export const Header: React.FC<HeaderProps> = ({}) => {
           </div>
         ) : null}
       </div>
-      <Link href='#projects'>
-        <a className='absolute bottom-4 w-10 h-10 rounded-full border-2 border-primary-light drop-shadow-lg text-primary-light flex items-center justify-center transition-all opacity-25 hover:opacity-80'>
-          <motion.div
-            animate={{
-              y: [3, -3, 3],
-            }}
-            transition={{
-              duration: 2,
-              loop: Infinity,
-              ease: "easeInOut",
-            }}
-          >
-            <BiDownArrow />
-          </motion.div>
-        </a>
-      </Link>
-    </div>
+    </section>
   );
 };

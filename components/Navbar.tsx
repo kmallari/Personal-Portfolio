@@ -75,7 +75,7 @@ export const Navbar: React.FC<NavbarProps> = ({ handleThemeChange, theme }) => {
           <div className='flex items-center gap-10'>
             <button
               onClick={handleThemeChange}
-              className='bg-dark-neutral dark:bg-primary-light bg-opacity-10 dark:bg-opacity-10 dark:hover:bg-opacity-20 hover:bg-opacity-30 p-2 rounded-full'
+              className='bg-dark-neutral dark:bg-primary-light bg-opacity-10 dark:bg-opacity-10 dark:hover:bg-opacity-20 hover:bg-opacity-20 p-2 rounded-full'
             >
               {theme === "light" ? (
                 <MdOutlineLightMode />
@@ -137,7 +137,7 @@ export const Navbar: React.FC<NavbarProps> = ({ handleThemeChange, theme }) => {
       <AnimatePresence>
         {showHamburgerMenu && (
           <motion.div
-            className='h-screen bg-opacity-20 dark:bg-opacity-70 -sm flex flex-col top-16 w-full fixed overflow-hidden font-dm text-dark-neutral dark:text-white bg-black z-50'
+            className='h-screen bg-opacity-20 dark:bg-opacity-70 -sm flex flex-col top-16 w-full fixed overflow-hidden font-dm text-dark-neutral dark:text-white bg-black z-50 backdrop-blur-sm'
             initial={{ x: -400 }}
             animate={{ x: 0 }}
             exit={{ x: -768 }}
