@@ -57,8 +57,8 @@ export const Navbar: React.FC<NavbarProps> = ({ handleThemeChange, theme }) => {
     <>
       <nav
         className={`flex flex-row justify-between h-16 w-full items-center pl-16 pr-16 lg:pl-32 lg:pr-32 font-dm fixed top-0 text-dark-neutral dark:text-white ${
-          scroll && "backdrop-blur-sm"
-        } z-50`}
+          scroll && "backdrop-blur-sm shadow-xl shadow-gray-300"
+        }  dark:shadow-none z-50`}
       >
         <Link href='/'>
           <a>
@@ -137,7 +137,7 @@ export const Navbar: React.FC<NavbarProps> = ({ handleThemeChange, theme }) => {
       <AnimatePresence>
         {showHamburgerMenu && (
           <motion.div
-            className='h-screen bg-opacity-20 dark:bg-opacity-70 -sm flex flex-col top-16 w-full fixed overflow-hidden font-dm text-dark-neutral dark:text-white bg-black z-50 backdrop-blur-sm'
+            className='h-screen bg-opacity-10 dark:bg-opacity-70 -sm flex flex-col top-16 w-full fixed overflow-hidden font-dm text-dark-neutral dark:text-white bg-black z-50 backdrop-blur-sm'
             initial={{ x: -400 }}
             animate={{ x: 0 }}
             exit={{ x: -768 }}
