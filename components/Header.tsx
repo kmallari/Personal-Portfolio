@@ -192,7 +192,7 @@ export const Header: React.FC<HeaderProps> = ({}) => {
         {width != null && width >= 768 ? (
           <div className='h-auto w-auto font-dm_mono text-gray-600 dark:text-primary-light flex flex-col items-center text-tiny lg:text-xs xl:text-sm mb-28'>
             <div
-              className='h-full w-full sm:p-4 lg:p-8 flex flex-row lg:gap-4 xl:gap-4 bg-dark-neutral dark:bg-primary-light bg-opacity-5 dark:bg-opacity-5 hover:bg-opacity-0 dark:hover:bg-opacity-10 -md border-2 border-opacity-5 dark:border-opacity-10 rounded-xl shadow-2xl dark:shadow-xl border-dark-neutral dark:border-primary-light transition-all'
+              className='h-full w-full sm:p-4 lg:p-8 flex flex-row lg:gap-4 xl:gap-4 bg-dark-neutral dark:bg-primary-light bg-opacity-5 dark:bg-opacity-5 hover:bg-opacity-0 dark:hover:bg-opacity-10 -md border-2 border-opacity-5 dark:border-opacity-10 rounded-xl shadow-2xl dark:shadow-xl border-dark-neutral dark:border-primary-light'
               data-aos='fade-down'
               data-aos-easing='ease-in-out'
               data-aos-delay='600'
@@ -275,6 +275,23 @@ export const Header: React.FC<HeaderProps> = ({}) => {
           </div>
         ) : null}
       </div>
+      <a
+        className='mt-16 xl:mt-32 w-10 h-10 rounded-full border-2 dark:border-2 border-dark-neutral dark:border-primary-light drop-shadow-lg text-dark-neutral dark:text-primary-light flex items-center justify-center opacity-20 dark:opacity-25 hover:opacity-30 dark:hover:opacity-80'
+        href='#projects'
+      >
+        <motion.div
+          animate={{
+            y: [3, -3, 3],
+          }}
+          transition={{
+            duration: 2,
+            loop: Infinity,
+            ease: "easeInOut",
+          }}
+        >
+          <BiDownArrow />
+        </motion.div>
+      </a>
     </section>
   );
 };
