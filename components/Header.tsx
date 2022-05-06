@@ -172,6 +172,21 @@ export const Header: React.FC<HeaderProps> = ({}) => {
               />
               <Image
                 className='brightness-50 hover:brightness-0 dark:brightness-100 dark:hover:brightness-200'
+                src='/mongo.png'
+                width={
+                  width != null && width > 1200
+                    ? 1139 * heightToThirty(314)
+                    : (1139 * heightToThirty(314)) / 1.3
+                }
+                height={
+                  width != null && width > 1200
+                    ? 314 * heightToThirty(314)
+                    : (314 * heightToThirty(314)) / 1.3
+                }
+                alt='tailwindcss-logo'
+              />
+              <Image
+                className='brightness-50 hover:brightness-0 dark:brightness-100 dark:hover:brightness-200'
                 src='/python.png'
                 width={
                   width != null && width > 1200
