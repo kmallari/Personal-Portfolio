@@ -28,7 +28,7 @@ export const HorizontalProjectContainer: React.FC<
 
   return (
     <motion.div
-      className='h-auto w-5/6 lg:w-full lg:h-1/2 p-8 flex flex-row object-contain gap-8 bg-primary-light bg-opacity-40 dark:bg-opacity-5 border-2 border-opacity-10 rounded-xl shadow-xl border-primary-light hover:bg-opacity-30 dark:hover:bg-opacity-10'
+      className='h-auto lg:w-full p-8 flex flex-row object-contain gap-8 bg-primary-light bg-opacity-40 dark:bg-opacity-5 border-2 border-opacity-10 rounded-xl shadow-xl border-primary-light hover:bg-opacity-30 dark:hover:bg-opacity-10'
       whileHover={{
         scale: 1.025,
         transition: { duration: 0.1 },
@@ -37,7 +37,7 @@ export const HorizontalProjectContainer: React.FC<
       <div className='object-contain'>
         <Image
           src={image_src}
-          alt='preview-of-plinko'
+          alt='preview-of-project'
           width={width != null && width > 1024 ? 494 / 2 : 494 / 3}
           height={width != null && width > 1024 ? 848 / 2 : 848 / 3}
           quality={100}
@@ -69,10 +69,10 @@ export const HorizontalProjectContainer: React.FC<
             </Link>
           </div>
         </div>
-        <p className='text-gray-600 hover:text-gray-600 dark:text-primary-light leading-relaxed text-sm font-dm_mono -mt-4'>
+        <p className='text-gray-600 hover:text-gray-600 dark:text-primary-light leading-relaxed text-sm font-dm_mono'>
           {description}
         </p>
-        <p className='text-gray-600 hover:text-gray-900 dark:text-primary-light dark:hover:text-white leading-relaxed text-sm font-dm_mono -mt-4'>
+        <p className='text-gray-600 hover:text-gray-900 dark:text-primary-light dark:hover:text-white leading-relaxed text-sm font-dm_mono'>
           <span className='font-bold text-primary-2'>Technologies Used:</span>
           <span className='opacity-50'> {technologies}</span>
         </p>

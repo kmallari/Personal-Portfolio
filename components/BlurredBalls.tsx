@@ -65,7 +65,7 @@ export const BlurredBalls: React.FC<BlurredBallsProps> = ({ theme }) => {
   }, [width, height]);
 
   return (
-    <div className='p-0 w-full h-screen fixed overflow-hidden'>
+    <div className='p-0 w-full h-screen fixed overflow-hidden select-none'>
       <div className='absolute top-0 left-0 opacity-60 dark:opacity-40'>
         <motion.div
           animate={{ x: xPositions1, y: yPositions1, rotate: rotations1 }}
