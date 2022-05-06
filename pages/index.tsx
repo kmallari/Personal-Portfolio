@@ -1,7 +1,5 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Image from "next/image";
-import styles from "../styles/Home.module.css";
 import { Navbar } from "../components/Navbar";
 import { Header } from "../components/Header";
 import { Projects } from "../components/Projects";
@@ -20,14 +18,8 @@ const Home: NextPage = () => {
   }, []);
 
   const { systemTheme, theme, setTheme } = useTheme();
-
   const bodyStyle: React.CSSProperties = {
-    // backgroundColor: "rgb(13, 13, 14)",
     backgroundSize: "40px 40px",
-    // backgroundImage:
-    //   theme === "dark"
-    //     ? "linear-gradient(\n      to right,\n      rgb(19, 19, 20) 1px,\n      transparent 1px\n    ),\n    linear-gradient(to bottom, rgb(19, 19, 20) 1px, transparent 1px)"
-    //     : "linear-gradient(\n      to right,\n      rgb(225, 225, 238) 1px,\n      transparent 1px\n    ),\n    linear-gradient(to bottom, rgb(225, 225, 238) 1px, transparent 1px)",
     backgroundAttachment: "fixed",
     scrollBehavior: "smooth",
     overflowX: "hidden",

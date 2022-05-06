@@ -7,8 +7,6 @@ interface BlurredBallsProps {
   theme: string;
 }
 
-const ORIG_SPEED_X = 15;
-const ORIG_SPEED_Y = 15;
 export const BlurredBalls: React.FC<BlurredBallsProps> = ({ theme }) => {
   const { height, width } = useWindowDimensions();
 

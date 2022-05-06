@@ -1,8 +1,5 @@
-import { findSourceMap } from "module";
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React, { useState, useRef } from "react";
 import { Notification } from "./Notification";
-
 interface ContactFormProps {}
 
 export const ContactForm: React.FC<ContactFormProps> = ({}) => {
@@ -14,6 +11,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({}) => {
     emailError: "",
     messageError: "",
   });
+
+  const [token, setToken] = useState<any>(null);
 
   const [notification, setNotification] = useState(false);
 
@@ -46,22 +45,22 @@ export const ContactForm: React.FC<ContactFormProps> = ({}) => {
       return false;
     }
 
-    setForm({
-      name: "",
-      email: "",
-      message: "",
-      nameError: "",
-      emailError: "",
-      messageError: "",
-    });
-
     return true;
   };
 
   const handleSubmitForm = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const isValid = validate();
-    if (isValid) {
+    if (isValid && token != null) {
+      setForm({
+        name: "",
+        email: "",
+        message: "",
+        nameError: "",
+        emailError: "",
+        messageError: "",
+      });
+
       fetch("/api/contact", {
         method: "POST",
         headers: {
