@@ -1,23 +1,9 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { Navbar } from "../components/Navbar";
-import { Header } from "../components/Header";
-import { Projects } from "../components/Projects";
-import { BlurredBalls } from "../components/BlurredBalls";
-import { ContactForm } from "../components/ContactForm";
-import { Footer } from "../components/Footer";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import React, { useEffect } from "react";
-import { useTheme } from "next-themes";
+import Link from "next/link";
+import Old from "./old";
 
 const Home: NextPage = () => {
-  useEffect(() => {
-    AOS.init();
-    AOS.refresh();
-  }, []);
-
-  const { systemTheme, theme, setTheme } = useTheme();
   const bodyStyle: React.CSSProperties = {
     backgroundSize: "40px 40px",
     backgroundAttachment: "fixed",
@@ -25,34 +11,36 @@ const Home: NextPage = () => {
     overflowX: "hidden",
   };
 
-  const handleThemeChange = (): void => {
-    if (theme === "light") {
-      setTheme("dark");
-    } else {
-      setTheme("light");
-    }
-  };
-
   return (
-    <div
-      style={bodyStyle}
-      className='bg-slate-200 dark:bg-dark-neutral bg-light-grid dark:bg-dark-grid'
-    >
+    <>
       <Head>
         <title>Kevin Mallari | Portfolio</title>
         <meta name='keywords' content='personal-portfolio' />
       </Head>
-      <BlurredBalls theme={theme} />
-      <Header />
-      <Projects theme={theme} />
-      <ContactForm />
-      <Footer />
-      <Navbar
-        systemTheme={systemTheme}
-        theme={theme}
-        handleThemeChange={handleThemeChange}
-      />
-    </div>
+      <div
+        style={bodyStyle}
+        className='h-screen flex flex-col items-center justify-center z-50'
+      >
+        <h1 className='text-blue-400 text-3xl fon-bold z-50'>
+          A new website is under construction.
+        </h1>
+        <h2 className='text-slate-200 text-xl my-4 z-50'>In the meantime...</h2>
+        <p className='text-slate-400 z-50'>
+          You can contact me through{" "}
+          <span className='hover:underline hover:underline-offset-2 hover:text-white transition-all'>
+            kevin.mallari@gmail.com
+          </span>
+        </p>
+        <p className='text-slate-400 z-50'>
+          To visit the old website, {" "}
+          <Link href='/old'>
+            <a className='text-blue-400 underline hover:text-blue-600'>
+              click here.
+            </a>
+          </Link>
+        </p>
+      </div>
+    </>
   );
 };
 
